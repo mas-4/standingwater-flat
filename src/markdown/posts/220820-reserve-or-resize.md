@@ -1,6 +1,6 @@
 ---
 title: "A Minor C++ Performance Insight"
-date: "2021-08-27"
+date: "2022-08-27"
 ---
 
 # A Simple Optimization
