@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>standingwater - "vote.py"</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="body">
+      <nav>
+  <h3>standingwater</h3>
+  <a href="./">~</a>
+  <a href="./about">whoami</a>
+  <a href="./posts">posts</a>
+</nav>
+
+      <p><a href="https://github.com/mas-4/vote">Github Repository for vote.py</a></p>
+<p>I have a friend, let's call her Blaine, who is a reliable liberal, but has never
+voted. She's 28 and has never registered. I pushed and I pushed and I pushed in
+2018 but she never did.</p>
+<p>Well, this time is going to be different. And I'm seeing to it.</p>
+<p>I wrote a script to bug her by sending a text repeatedly, on a tightening
+schedule, until the deadline for registration to vote in November in Florida.</p>
+<p>The code for sending the texts was incredibly easy (though it cost around $20).
+This might be attributable to the fact that I've done it before. (Some time ago
+I wrote a script to run in the background of my home desktop querying
+<a href="https://icanhazip.com/">icanhazip.com</a> periodically, saving the result to a text file, and texting
+me if it changed.) You can literally just copy the code in the <a href="https://icanhazip.com/">Twilio docs</a>
+and it will work. Super simple.</p>
+<p>The code for getting the scheduler to run was a bit less trivial. It required
+some thinking, but wasn't as difficult as I was anticipating. I want to talk
+about the strategy I employ in vote.py here.</p>
+<h1>Scheduling</h1>
+<p>My requirements for this were pretty simple: I wanted to text Blaine on a
+periodic basis, wherein the period shrank exponentially. But, I wanted to avoid
+texting her at midnight, or outside certain pre-designated working hours.</p>
+<pre><code>def runschedule(duedate, to, body, test):
+    try:
+        message = sendtext(to, body)
+        SIDS.append((message, time.time()))
+    except:
+        print(&quot;Message failed. Trying again next time.&quot;)
+
+    s = scheduler(time.time, time.sleep)
+    seconds = getseconds(duedate, test)
+
+    s.enter(seconds, 1, runschedule, argument=(duedate, to, body, test))
+    s.run()
+</code></pre>
+<p><code>Sched.scheduler</code> works by entering the number of seconds to sleep until it
+triggers a function which is passed through <code>sched.scheduler.enter()</code>. You can
+schedule multiple events with different sleep times, but <a href="https://stackoverflow.com/a/2399145/9691276">the strategy for a
+continuous repeating event is apparently to use the function to reschedule the
+event</a>. Basically, just use it recursively. For me, this is the function
+<a href="https://github.com/mas-4/vote/blob/802cda7cfa12fca74e8ecf800a9244b3c0a4e04a/vote.py#L85-L101"><code>runschedule()</code></a>.</p>
+<p>I program somewhat iteratively and composably (if that's a word), so my next
+question was: how do I get the number of seconds until a given date and time?</p>
+<pre><code>def getseconds(duedate):
+    freq = DEFAULTFREQ
+    timetogo = duedate - dt.datetime.now()
+
+    try:
+        seconds = freq[timetogo.days // 30] # interval of months
+    except IndexError:
+        seconds = freq[-1]
+
+    seconds = checkho(seconds)
+    return seconds
+</code></pre>
+<p>This is actually still a fairly simple task. I have a habit of coding something
+stupidly first and then fixing it more logically, so I started with a dictionary
+keyed on &quot;months until the due date&quot; before I remembered that I could just use a
+damn array. I generate the array as an exponential function: <a href="https://github.com/mas-4/vote/blob/master/vote.py#L21"><code>2^x * 1800</code></a>.
+Then, in <a href="https://github.com/mas-4/vote/blob/master/vote.py#L56-L82"><code>getseconds()</code></a>, to determine the seconds until next event, I take
+the difference between the due date and now using <code>datetime.datetime</code> (which is
+an awesome damn library) and divide the number of days left by 30 (so,
+essentially the months left). That gives the index in <code>DEFAULTFREQ</code> and the
+seconds 'til T-Time.</p>
+<pre><code>def checkho(seconds):
+    ho = DEFAULTHO
+    delta = dt.timedelta(seconds=seconds)
+    t_time = dt.datetime.now() + delta
+
+    if t_time.hour &lt; ho[0]:
+        t_time = t_time.replace(hour=ho[0])
+        delta = t_time - dt.datetime.now()
+        print(&quot;Text would be too early, rescheduling...&quot;)
+    elif t_time.hour &gt;= ho[1]:
+        t_time = t_time.replace(day=t_time.day+1, hour=ho[0])
+        delta = t_time - dt.datetime.now()
+        print(&quot;Text would be too late, rescheduling...&quot;)
+
+    return delta.seconds
+</code></pre>
+<p>But, now that I have that, that's not enough to schedule the text, because Now +
+Seconds could be outside the acceptable Hours of Operation. So I wrote
+<a href="https://github.com/mas-4/vote/blob/master/vote.py#L35-L53"><code>checkho()</code></a>. Checkho takes the seconds determined in <code>getseconds()</code>,
+determines the date and time that is by adding
+<code>datetime.timedelta(seconds=seconds)</code> to now, and then determing whether the
+resulting <code>t_time</code> is before <code>DEFAULTHO[0]</code> or after <code>DEFAULTHO[1]</code>. In either
+case, I just reschedule at the next <code>DEFAULTHO[0]</code>.</p>
+<p>So there you have it. Surprisingly simple once it's written, like all code. I've
+texted Blaine a handful of times already. The next text will go out tonight at
+8:08.</p>
+<p>�</p>
+
+    </div>
+  </body>
+</html>

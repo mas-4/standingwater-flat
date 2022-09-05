@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>standingwater - "life.swp"</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="body">
+      <nav>
+  <h3>standingwater</h3>
+  <a href="./">~</a>
+  <a href="./about">whoami</a>
+  <a href="./posts">posts</a>
+</nav>
+
+      <p>Life's been tough. To say the least. I've gotten a decent amount done in the
+past week or so but I just haven't felt like writing about it. So instead of a
+bunch of blogs I'm just writing the one. Another <code>life.swp</code>.</p>
+<p>First, I've been using <a href="https://github.com/vimwiki/vimwiki"><code>vimwiki</code></a> for notetaking and generally anything I
+just write down, tasks, etc., and was interested in trying to generate a site
+from the Markdown files. Managed to do it using pandoc and a <a href="https://github.com/mas-4/vimwiki/blob/master/Makefile">Makefile</a>.
+Apparently Netlify has pandoc built in, so now I can just deploy via git and it
+stays updated. It's currently hosted at <a href="https://vimwiki.standingwater.io">vimwiki.standingwater.io</a>. Don't
+mind the color scheme, it's pretty ugly and sure to change soon. I was
+experimenting with Nord. Don't like the result in the least.</p>
+<p>I recently started using <a href="https://www.instapaper.com/p/mas">Instapaper</a>, and paying for premium ($3 a month).
+For the past year or so I have been collecting an absurd amount of bookmarks,
+almost like a digital scrapbook of events (2020 has been movin' pretty fast, as
+everyone knows). A ton of the bookmarks have been tweets, but there were still
+an absurd amount of news articles, so I was interested in a more formal way to
+archive this stuff, and to clean out my bookmarks. Instapaper doesn't seem to
+handle tweets very well, but I've ported all of my news article bookmarks over,
+and am just going through all of the ones I haven't quite read yet, and the
+&quot;read laters&quot; that have been building up in my feedly for nigh on two years.</p>
+<p>It took some work trying to get an Instapaper link in my headers on
+standingwater.io and blog.standingwater.io. They aren't available as FontAwesome
+icons, so I had to use SVG's, and the result feels just a little more hacky than
+I'd like. These sites are so personal and will be with me so long that I have an
+interest in modularizing them and making them very easy to modify and extend, so
+I will probably be finding a way to improve on what I have. I actually have been
+getting a little dissatisfied with standingwater.io and am inclined to code up
+something myself instead of using the template it's built with.</p>
+<p>More interesting, though, is that I want to use the API to automatically (or at
+least programmatically) download all of my highlighted selections and notations
+from Instapaper and write them to markdown files in the <a href="https://vimwiki.standingwater.io/passages/index.html"><code>passages</code> portion of
+my vimwiki</a>.</p>
+<p>More to the point, life has been pretty tough precisely for one reason: the job
+hunt. It is not going well. I get a response from one in twenty companies, and
+of the responses I've gotten, only two have led to an interview, one of which I
+choked on, and the other one of which I completely blew by forgetting about it
+for the fifteen minutes it was scheduled for. The second one, most ironically,
+originally said it was just for equity (part of the reason I blew it off) and
+now says is for $120k. God that feels so shitty.</p>
+<p>Sometimes it feels like I'll never get a job. That I am doomed to make $12 an
+hour for the family company for the rest of my life. It gets hard thinking that.
+I'm trying to stay positive, but ho boy is it difficult.</p>
+<p>I made a comment on <a href="https://news.ycombinator.com/threads?id=annowiki">Hacker News</a> about anno.wiki and was pleasantly
+surprised by the feedback I got. It just re-iterated to me that the reason it
+failed was multi-fold, but that I can still fix it.</p>
+<p>I have learned a ton in the past two months. It is surprising how fast and
+fluent a lot of tech learning feels to me now. This is part of the reason I feel
+like I should be able to just get a job, but I understand rationally this is not
+how the world works. My lack of professional experience weighs heavily against
+me, even if I might be more experienced than a lot of juniors. One of the
+interviewers with the first company I interviewed with said his best hire ever
+was a Pizza Hut manager, so it's clear that it is possible. It's just hard as
+hell to get your foot in the door. And with the pandemic, the future feels so
+much more bleak.</p>
+<p>I am fully confident we'll be entering a serious recession, if not depression.
+It will rewrite the way we work, and the economy itself. I imagine that things
+will be more remote, which, on the face of it, means it should be easier to get
+a remote job, but I'm not confident that's the case. When a position is remote,
+there is so much more competition because it's not geographically limited. I
+just don't know.</p>
+<p>I think that I need to do two things now.</p>
+<p>One, formalize my application process. That is to say, I need to get a cover
+letter system. It seems they are very helpful. I need to start using Hacker Rank
+to apply for jobs. I need to start compiling a spreadsheet of all the companies
+I apply for, what I apply with, when, and I need to start applying at companies
+that don't have job postings.</p>
+<p>Two, I am going to start redesigning anno.wiki. I'm going to go hard on it. I am
+going to build an entirely new front end in ReactJS and relegate the current one
+to https://old.anno.wiki. The following list of changes will be incorporated:</p>
+<ol>
+<li>Autocomplete omni search. I want you to be able to search for annotations,
+users, and, most importantly, lines from the omni search bar, with
+incremental response. This seems essential to the functioning of this app.
+You need to be able to read Shakespeare in your bed with your own copy, write
+something in the margin, think &quot;this would make a good annotation,&quot; go to
+your desk, pop open anno.wiki, type the first few words of the first line
+into the omnibar, and open the passage for annotation in less than ten
+seconds.</li>
+<li>A landing page. I might even pay for an impact video. This is something I've
+been thinking about for six months, and the comments I got at HN made clear
+that no one knows what to do with the site.</li>
+<li>Analytics.</li>
+<li>A React Native mobile app. This may, in fact, be the biggest boost to
+utility. We will see.</li>
+<li>As for more technical information, I want to use graphql in the front end.
+There is a library called <a href="https://graphene-python.org/">Graphene Python</a> that allows you to easily (I
+hope) incorporate graphql into python, and there's a specific version called
+<a href="https://docs.graphene-python.org/projects/sqlalchemy/en/latest/">Graphine-SQLAlchemy</a> for SQLA. I am hoping this is easy to graft onto my
+existing structures. I have become very used to graphql in the past six
+months in writing Gatsby, and I like it a lot. The idea that I can build an
+easy data api for Flask without writing an insane amount of routes would be
+absolutely wonderful.</li>
+<li>I am interested in migrating the database a bit. I have been thinking about
+the possibility of using two different databases, one for data storage
+(lines) and one for annotations, comments, and general CRUD operations. I do
+not know. This is very future thinking, after I get the front end running.
+I'm not sure how that would affect the SQLA, how it would affect the
+cross-queries, especially the more complex ones that allow me to <a href="https://anno.wiki/tag/allusion/annotations">query all
+annotations with a particular tag</a>. But we'll see. I like the idea of
+having a database specific to persistent data, and keeping it separate from
+all CRUD operations. It just feel safer and cleaner.</li>
+</ol>
+<p>This is going to be a big project. Hopefully not as big as building anno.wiki in
+the first place, but we'll see. I hope I can get it done in 3ish months but that
+seems extreme. I just don't know. I'm definitely hoping to <em>not</em> make another
+year long project of it.</p>
+<p>�</p>
+
+    </div>
+  </body>
+</html>

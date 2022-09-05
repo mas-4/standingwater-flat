@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>standingwater - "A Minor C++ Performance Insight"</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="body">
+      <nav>
+  <h3>standingwater</h3>
+  <a href="./">~</a>
+  <a href="./about">whoami</a>
+  <a href="./posts">posts</a>
+</nav>
+
+      <h1>A Simple Optimization</h1>
+<p>A common data structure in C++ is the vector, which is a misnamed variable
+length array.</p>
+<p>Here's a simplified common bit of code you might see:</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  for (size_t i = vec.size(); i &lt; n; i++) {
+    vec.push_back(i);
+  }
+}
+</code></pre>
+<p>I see this a lot, we all see this a lot, because programmers are lazy and don't
+think about memory allocation.</p>
+<p>Why is this bad? Because push<em>back checks to see if
+<code>vec.capacity() == vec.size()</code> and then reallocates the entire array if true.
+You might reallocate multiple times in this loop depending on n, and you _know</em>
+<code>n</code>, so you may as well allocate the memory once, at the beginning.</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  size_t sz = vec.size();
+  vec.reserve(n);
+  for (size_t i = sz; i &lt; n; i++) {
+    vec.push_back(i);
+  }
+}
+</code></pre>
+<p>This is a pretty simple example, but I got in a discussion at work about it
+because it was discussed in <a href="https://www.youtube.com/watch?v=fHNmRkzxHWs&amp;t=2001s">This 2014 CppCon Talk</a> by Chandler Carruth,
+one of the project leads on the new <a href="https://github.com/carbon-language/carbon-lang">Carbon Language</a>.</p>
+<p>Specifically, I was bothered by the fact that Carruth, <a href="https://www.youtube.com/watch?v=FnGCDLhaxKU">who is an expert on
+compiler optimization</a> was recommending it. I expected that the compiler,
+which I worship like a God, could have made that change for you. Apparently not.</p>
+<p>My boss, on the other hand, said he wouldn't trust anyone making that
+recommendation. He said you should use resize and bracket notation assignment.</p>
+<p>I spent about 30-45 minutes with a co-worker trying to understand why resize
+would be faster than reserve and missed the forest for the trees.</p>
+<h2>Allocation</h2>
+<p>There are two steps in both my boss's recommendation</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  size_t sz = vec.size();
+  vec.resize(n);
+  for (size_t i = sz; i &lt; n; i++) {
+    vec[i] = i;
+  }
+}
+</code></pre>
+<p>and Carruth's recommendation:</p>
+<ol>
+<li>Allocation</li>
+<li>Assignment</li>
+</ol>
+<p>The difference between resize and reserve is that reserve allocates memory, but
+resize initializes it.</p>
+<p>The key difference that we discovered, is that resize adjusts the <em>size</em> of the
+vector, where reserve does not. So</p>
+<pre><code class="language-c++">vec.size() == n / 10; // true
+vec.resize(n);
+vec.size() == n;       // true
+</code></pre>
+<p>while</p>
+<pre><code class="language-c++">vec.size() == n / 10; // true
+vec.reserve(n);
+vec.size() == n / 10; // still true
+</code></pre>
+<p>So</p>
+<pre><code class="language-c++">vec.size() == n / 10;       // true
+vec.reserve(n);
+vec.push_back(10);
+vec.size() == (n / 10) + 1;  // true
+</code></pre>
+<p>However, you cannot:</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  size_t sz = vec.size();
+  vec.reserve(n);
+  for (size_t i = sz; i &lt; n; i++) {
+    vec[i] = i;
+  }
+  vec.size() == n; // false
+}
+</code></pre>
+<p>But obviously, allocation + initialization (<code>resize</code>) is slower than allocation
+alone (<code>reserve</code>), right?</p>
+<h2>Assignment</h2>
+<p>With some common sense, it's obvious that bracket notation is faster than
+<code>push_back</code>: <code>push_back</code> has to increment the size, check that it's still less
+than capacity, and if its not, reallocate (the reallocation solved by the
+reserve, but still). The bracket notation directly accesses the underlying
+memory and just puts it in there.</p>
+<h2>Putting the two together</h2>
+<p>The only way that resize + [] is faster than reserve + push_back is if the
+combined overhead of push_back overwhelms the initialization of resize, right?
+This is probably the case for some large n, but not for some small n I'd assume,
+since memory reallocation is expensive (you have to allocate a new block of
+memory and copy the whole array to the new block!).</p>
+<p>Except, that's not true.</p>
+<p><code>resize()</code> initializes to zero unless you specify a value. And here's the thing
+about zero-initialization: you can use <a href="https://stackoverflow.com/a/1538427/9691276">calloc</a>:</p>
+<blockquote>
+<p>For large allocations, most calloc implementations under mainstream OSes will
+get known-zeroed pages from the OS (e.g. via POSIX mmap(MAP_ANONYMOUS) or
+Windows VirtualAlloc) so it doesn't need to write them in user-space. This is
+how normal malloc gets more pages from the OS as well; calloc just takes
+advantage of the OS's guarantee.</p>
+</blockquote>
+<p>That means zero-allocation is equivalent (or near equivalent) to uninitialized
+allocation. So you get the initialization for free, <code>malloc == calloc</code>. Now the
+only difference between the two patterns is <code>push_back</code>'s overhead, which is
+obviously greater than bracket notation.</p>
+<h2>tl;dr</h2>
+<p>Use</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  size_t sz = vec.size();
+  vec.resize(n);
+  for (size_t i = sz; i &lt; n; i++) {
+    vec[i] = i;
+  }
+}
+</code></pre>
+<p>not</p>
+<pre><code class="language-c++">void append(size_t n, std::vector &amp;vec) {
+  size_t sz = vec.size();
+  vec.reserve(n);
+  for (size_t i = sz; i &lt; n; i++) {
+    vec.push_back(i);
+  }
+}
+</code></pre>
+<p>My boss was right, as usual.</p>
+<p>�</p>
+
+    </div>
+  </body>
+</html>
