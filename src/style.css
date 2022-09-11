@@ -1,8 +1,30 @@
 .body {
-  width: 25 em;
+  width: 50%;
+  min-width: 50em;
+  display: block;
   margin: 0 auto;
+  padding: 1em;
 }
+
+#title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#links {
+  display: flex;
+  justify-content: space-between;
+  width: 10em;
+}
+
+#links a {
+  text-decoration: none;
+
+}
+
 nav {
-  margin: 0 auto;
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-between;
 }
 

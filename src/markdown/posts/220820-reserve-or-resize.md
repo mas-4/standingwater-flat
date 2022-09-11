@@ -21,7 +21,7 @@ void append(size_t n, std::vector &vec) {
 I see this a lot, we all see this a lot, because programmers are lazy and don't
 think about memory allocation.
 
-Why is this bad? Because push*back checks to see if
+Why is this bad? Because `pushback` checks to see if
 `vec.capacity() == vec.size()` and then reallocates the entire array if true.
 You might reallocate multiple times in this loop depending on n, and you \_know*
 `n`, so you may as well allocate the memory once, at the beginning.
