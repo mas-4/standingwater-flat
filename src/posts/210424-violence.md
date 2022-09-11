@@ -33,7 +33,7 @@ consistent theme in my understanding of life and humanity.
 > America has a non-negligible percent of population who I can only describe as
 > "bloodthirsty for no good reason". They've been here a long time, and remain
 > here today. When we try to discuss the problem, the noise from political
-> side-taking usually overtakes the conversation. 
+> side-taking usually overtakes the conversation.
 
 This isn't *just* an American phenomenon, and anyone who thinks it is has a
 really tunnel vision understanding of humanity and history. Celebration of pain
@@ -42,11 +42,11 @@ is a universal phenomenon in human society.
 (***NB:*** I do not mean universal to all humans, but present in every human
 society.)
 
-There's a word for this that I think is too weak: Schadenfreude. 
+There's a word for this that I think is too weak: Schadenfreude.
 
 > Schadenfreude (/ˈʃɑːdənfrɔɪdə/; German: [ˈʃaːdn̩ˌfʁɔʏ̯də]; lit. 'harm-joy') is
 > the experience of pleasure, joy, or self-satisfaction that comes from learning
-> of or witnessing the troubles, failures, or humiliation of another. 
+> of or witnessing the troubles, failures, or humiliation of another.
 
 Fascinatingly, the second sentence in the opening of [this Wikipedia][1]
 (accessed 4/24/21) firmly establishes this as a human instinct, and not a
@@ -141,7 +141,7 @@ There are a lot of gotchas in these conditions and I'd like to explore them.
 First, the definition of "lasting harm" is very important. As pain is not merely
 physical, but also psychological, we can recognize that even acts which do not
 cause material violence in a way that results in a permanently altered bodily
-condition can qualify. Two such examples worth exploring: 
+condition can qualify. Two such examples worth exploring:
 
 ## 1. Rape
 
@@ -175,7 +175,7 @@ when one has not consented? We have three events:
 
 Three separate experiences separated by one degree of condition. It's clear that
 the difference between (1) and (2) is physical and the difference between (2)
-and (3) is psychological. 
+and (3) is psychological.
 
 I believe this indicates that material-violence-induced pain results from a
 combination of the psychological state of the victim and the nervous system. In
@@ -188,29 +188,30 @@ sytem change as pain. Instead, they experience it as pleasure.
 
 I'm going to try to copy a list of types of psychological torture ([Ojeda, What
 is Psychological Torture?][8]):
+```
+Categories of Psychological Torture
 
-> Categories of Psychological Torture
->
-> Isolation: solitary or quasi-solitary confinement.
->
-> Debilitation: food, water, and sleep deprivation; extreme temperatures.
->
-> Spatiotemporal disorientation: confinement in small places, natural light
-> denial.
->
-> Sensory deprivation: hoods, goggles, gloves, deodorizing masks.
->
-> Sensory assault: shouting, loud music, bright lights.
->
-> Desperation: indefinite detention, sense of futility.
->
-> Threats: of death or violence, to self or others, mock executions, witness
-> torture.
->
-> Degradation: verbal, nudity, personal hygiene denial, overcrowding, contact
-> with pests, contact with excrement, sexual, ethnic, religious.
->
-> Pharmacological manipulation: tranquilizers, hallucinogens.
+Isolation: solitary or quasi-solitary confinement.
+
+Debilitation: food, water, and sleep deprivation; extreme temperatures.
+
+Spatiotemporal disorientation: confinement in small places, natural light
+denial.
+
+Sensory deprivation: hoods, goggles, gloves, deodorizing masks.
+
+Sensory assault: shouting, loud music, bright lights.
+
+Desperation: indefinite detention, sense of futility.
+
+Threats: of death or violence, to self or others, mock executions, witness
+torture.
+
+Degradation: verbal, nudity, personal hygiene denial, overcrowding, contact
+with pests, contact with excrement, sexual, ethnic, religious.
+
+Pharmacological manipulation: tranquilizers, hallucinogens.
+```
 
 This list bothers me. Because it's stunning how easy it is to torture a human
 being. It also feels like my two well-defined paradigms of violence, material
@@ -308,9 +309,9 @@ Chinese Water Torture, which is not actually Chinese,
 > fear and mental deterioration in the subject. The pattern of the drops is
 > often irregular, and the cold sensation jarring, which causes anxiety as a
 > person tries to anticipate the next drip.
->
+
 > ...
->
+
 > There is very little evidence pertaining to the effectiveness of Torture for
 > interrogation purposes. The method itself causes lasting mental damage in
 > victims proportional to the intensity of exposure. The television series
@@ -357,38 +358,38 @@ the [YouTube video here][10].
 > railroad tracks and an hour north of the town in the gray dawn four horsement
 > sallied forth from a grove of trees and halted their mounts in the track
 > before him.
->
+
 > He reined the horse. The riders sat silently. THe dark animals they road
 > raised their noses as if to search him out of the air. Beyond the trees the
 > bright flat shape of the river lay like a knife. He studied the men. He'd not
 > seen them move yet they seemed closer. They sat divided before him on the
 > track two and two.
-> 
+
 > Qué tiene allá? they said.
-> 
+
 > Los huesos de mi hermano.
-> 
+
 > They sat in silence. One of the riders detached himself and rode forward. He
 > crossed the track in his riding forward and then crossed it back. Riding
 > erect, archly. As if at some sinister dressage. He halted the horse almost
 > within armreach and he leaned forward with his forearms crossed on the pommel
 > of his saddle.
-> 
+
 > Huesos? he said.
-> 
+
 > Sí.
-> 
+
 > The new light in the east was behind him and his face was a shadow under the
 > shape of his hat. The other riders were dark figures yet. The rider sat
 > upright in the saddle and looked back towards them. Then he studied Billy
 > again.
-> 
+
 > Abralo, he said.
-> 
+
 > No.
-> 
+
 > No?
-> 
+
 > They sat. There was a flash of white beneath his hat as if he'd smiled. What
 > he'd done was to seize his horse's reins in his teeth. The next flash was a
 > knife that had come from somewhere in his clothing and caught the light in
@@ -400,7 +401,7 @@ the [YouTube video here][10].
 > man swore and he hauled the packhorse forward and dallied the leadrope to his
 > saddlehorn again and reached and cut the ropes and pulled the soogan of bones
 > to the ground.
-> 
+
 > Billy was trying to undo the tie on the flap of the saddlebag to get his
 > pistol but Niño turned and stamped and backed away sawing his head. The
 > bandolero undallied and cast off the leadrope and stepped down. The packhorse
@@ -411,15 +412,15 @@ the [YouTube video here][10].
 > withered hands with the bones imprinted in teh leather skin, lying there with
 > his caven face turned up and clutching himself like some fragile being fraught
 > with code in that indifferent dawn.
-> 
+
 > You son of a bitch, said Billy. You son of a bitch.
-> 
+
 > Es un engaño? said the man. Es un engaño?
-> 
+
 > He kicked at the poor desiccated thing. He turned with the knife.
-> 
+
 > Dónde está el dinero?
-> 
+
 > Las alforjas, called out one of the riders. Billy had swung under Niño's
 > bridlereins. But the horse must have begun to see the loosening of some
 > demoniac among them for he reared and backed and in his backing trod among the
