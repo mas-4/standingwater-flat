@@ -1,25 +1,24 @@
+/* CSS HEX */
+:root {
+  --link-visited: #a8dadcff;
+  --link: #457b9dff;
+  --link-hover: #1d3557ff;
+  --code: #f1faee;
+  --code-bg: #14213d;
+}
+
 .body {
   width: 50%;
   min-width: 50em;
-  display: block;
   margin: 0 auto;
-  padding: 1em;
+  font-family: Arial, Helvetica, San-Serif;
+  font-size: 20px;
 }
 
-#title {
-  font-weight: bold;
-  font-size: 2em;
-}
-
-#links {
-  display: flex;
-  justify-content: space-between;
-  width: 10em;
-}
-
-#links a {
-  text-decoration: none;
-
+.content {
+  width: 45%;
+  min-width: 45em;
+  margin: 0 auto;
 }
 
 nav {
@@ -28,3 +27,84 @@ nav {
   justify-content: space-between;
 }
 
+#title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#title a {
+  color: black;
+}
+
+#title a:hover {
+  color: black;
+}
+
+#title a:visited {
+  color: black;
+}
+
+#links {
+  display: flex;
+  justify-content: space-between;
+  width: 10em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+a:visited {
+  color: var(--link-visited);
+}
+
+#links a {
+  text-decoration: none;
+  color: var(--link);
+}
+
+#links a:hover {
+  color: var(--link-hover);
+}
+
+.markdown {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.markdown p img {
+  max-width: 100%;
+  height: auto;
+}
+.markdown pre {
+  margin-left: 1em;
+  padding: 1em;
+  background-color: var(--code-bg);
+  color: var(--code)
+}
+
+.markdown blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.markdown blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+.markdown blockquote p {
+  display: inline;
+}
+
+ul li {
+  list-style-type: "- ";
+}
