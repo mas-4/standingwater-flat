@@ -47,7 +47,7 @@ nav {
 #links {
   display: flex;
   justify-content: space-between;
-  width: 10em;
+  width: 15em;
 }
 
 a {
