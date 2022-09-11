@@ -108,3 +108,22 @@ a:visited {
 ul li {
   list-style-type: "- ";
 }
+
+
+#footer {
+  margin: auto;
+  display: block;
+  width: 50%;
+  max-width: 29em;
+}
+
+#footer #links {
+  width: 23em;
+  margin: auto;
+}
+
+#footer svg {
+  max-width: 2em;
+  width: 2em;
+  margin: 2em;
+}
