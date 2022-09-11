@@ -1,0 +1,12 @@
+<bluesky-template name="_imports/main.html" />
+<bluesky-block name="content">
+  <h1>Posts</h1>
+  <bluesky-markdown
+    slot="content"
+    directory="projects"
+    title="title"
+    sort="title"
+    order="descending"
+    template="_imports/project.html"
+  />
+</bluesky-block>

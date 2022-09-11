@@ -75,9 +75,10 @@ a:visited {
   font-family: "Times New Roman", Times, serif;
 }
 
-.markdown p img {
+.markdown img {
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 .markdown pre {
   margin-left: 1em;
