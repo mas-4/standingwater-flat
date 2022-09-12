@@ -6,7 +6,7 @@ date: "2022-09-12"
 # Background
 
 In May I lost my dog. Her name was Sky, and I memorialized her in the blog post
-[On Death](220514-death.md). When I wrote that post, still fighting back tears
+[On Death](220514-death). When I wrote that post, still fighting back tears
 the day she passed, Gatsby, the framework my site was built on, refused to start
 its development server on my machine. I wrote the post in neovim, pushed, and
 hoped Netlify would render it. It did, but the experience left a sour taste in
