@@ -1,5 +1,5 @@
 ---
-title: "new_beginnings.md"
+title: "New Beginnings"
 date: "2020-06-06"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "open_source_as_high_culture.md"
+title: "Open Source As High Culture"
 date: "2020-06-08"
 ---
 

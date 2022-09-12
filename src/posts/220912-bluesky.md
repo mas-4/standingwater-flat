@@ -229,10 +229,11 @@ Maybe people will like it.
 # Afterword
 
 I've been working in Python for 5 years now. Toptal labelled me a "Python
-Expert" so I feel comfortable saying there's not much I can't do in Python. I
-chose to do this project in C then C++ because I wanted to exercise those memory
-handling systems programming muscles, and this project offered enough of a
-challenge to start feeling much more comfortable writing C++ (C too, actually).
+Expert" so I feel comfortable saying if I can do something, I can do it in
+Python. I chose to do this project in C then C++ because I wanted to exercise
+those memory handling systems programming muscles, and this project offered
+enough of a challenge to start feeling much more comfortable writing C++ (C too,
+actually).
 
 That being said, the difficulty in writing bluesky did not lie in the choice of
 programming language. Sure, string handling is a lot easier in Python, but

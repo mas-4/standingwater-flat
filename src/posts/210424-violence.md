@@ -1,5 +1,5 @@
 ---
-title: "on_violence.md"
+title: "On Violence"
 date: "2021-04-24"
 ---
 

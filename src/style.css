@@ -9,16 +9,13 @@
 
 .body {
   width: 50%;
-  min-width: 50em;
   margin: 0 auto;
   font-family: Arial, Helvetica, San-Serif;
   font-size: 20px;
 }
 
 .content {
-  width: 45%;
-  min-width: 45em;
-  margin: 0 auto;
+  margin: 0 2em;
 }
 
 nav {
@@ -30,6 +27,7 @@ nav {
 #title {
   font-weight: bold;
   font-size: 2em;
+  display: inline;
 }
 
 #title a {
@@ -44,7 +42,7 @@ nav {
   color: black;
 }
 
-#links {
+.links {
   display: flex;
   justify-content: space-between;
   width: 15em;
@@ -62,12 +60,12 @@ a:visited {
   color: var(--link-visited);
 }
 
-#links a {
+.links a {
   text-decoration: none;
   color: var(--link);
 }
 
-#links a:hover {
+.links a:hover {
   color: var(--link-hover);
 }
 
@@ -80,11 +78,12 @@ a:visited {
   height: auto;
   margin: 0 auto;
 }
+
 .markdown pre {
   margin-left: 1em;
   padding: 1em;
   background-color: var(--code-bg);
-  color: var(--code)
+  color: var(--code);
 }
 
 .markdown blockquote {
@@ -94,6 +93,7 @@ a:visited {
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
+
 .markdown blockquote:before {
   color: #ccc;
   content: open-quote;
@@ -102,6 +102,7 @@ a:visited {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+
 .markdown blockquote p {
   display: inline;
 }
@@ -110,16 +111,14 @@ ul li {
   list-style-type: "- ";
 }
 
-
 #footer {
   margin: auto;
   display: block;
-  width: 50%;
-  max-width: 29em;
+  width: fit-content;
 }
 
-#footer #links {
-  width: 23em;
+#footer .links {
+  width: fit-content;
   margin: auto;
 }
 
@@ -127,4 +126,38 @@ ul li {
   max-width: 2em;
   width: 2em;
   margin: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .body {
+    width: 100%;
+  }
+  .content {
+    margin: 0;
+  }
+  nav {
+    margin: 0em auto;
+    display: flex;
+    flex-direction: column;
+  }
+  nav #title {
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  nav .links {
+    display: block;
+    width: 100%;
+  }
+
+  #footer {
+    margin: auto;
+    display: block;
+    width: 100%;
+  }
+  #footer svg {
+    max-width: 2em;
+    width: 1em;
+    margin: 1em;
+  }
 }
