@@ -84,6 +84,7 @@ a:visited {
   padding: 1em;
   background-color: var(--code-bg);
   color: var(--code);
+  overflow: scroll;
 }
 
 .markdown blockquote {
@@ -159,5 +160,9 @@ ul li {
     max-width: 2em;
     width: 1em;
     margin: 1em;
+  }
+
+  .markdown pre {
+    margin: 0;
   }
 }
