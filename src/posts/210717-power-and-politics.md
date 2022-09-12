@@ -285,17 +285,15 @@ reason's dismissal of passion.
 
 # Political Persuasion as the Genetics of Social Evolution
 
-> Pointed threats, they bluff with scorn
->
-> Suicide remarks are torn
->
-> From the fool’s gold mouthpiece the hollow horn
->
-> Plays wasted words, proves to warn
->
-> That he not busy being born is busy dying
->
-> - Bob Dylan, It's Alright, Ma (I'm Only Bleeding)
+<div class="poetry">
+<p>Pointed threats, they bluff with scorn
+<p>Suicide remarks are torn
+<p>From the fool’s gold mouthpiece the hollow horn
+<p>Plays wasted words, proves to warn
+<p>That he not busy being born is busy dying
+<p><br></p>
+<p>- Bob Dylan, It's Alright, Ma (I'm Only Bleeding)
+</div>
 
 There's something more to be said about the conservative instinct as a balance
 to the liberal instinct.

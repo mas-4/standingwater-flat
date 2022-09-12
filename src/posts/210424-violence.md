@@ -188,30 +188,29 @@ sytem change as pain. Instead, they experience it as pleasure.
 
 I'm going to try to copy a list of types of psychological torture ([Ojeda, What
 is Psychological Torture?][8]):
-```
-Categories of Psychological Torture
 
-Isolation: solitary or quasi-solitary confinement.
-
-Debilitation: food, water, and sleep deprivation; extreme temperatures.
-
-Spatiotemporal disorientation: confinement in small places, natural light
-denial.
-
-Sensory deprivation: hoods, goggles, gloves, deodorizing masks.
-
-Sensory assault: shouting, loud music, bright lights.
-
-Desperation: indefinite detention, sense of futility.
-
-Threats: of death or violence, to self or others, mock executions, witness
-torture.
-
-Degradation: verbal, nudity, personal hygiene denial, overcrowding, contact
-with pests, contact with excrement, sexual, ethnic, religious.
-
-Pharmacological manipulation: tranquilizers, hallucinogens.
-```
+> Categories of Psychological Torture
+>
+> Isolation: solitary or quasi-solitary confinement.
+>
+> Debilitation: food, water, and sleep deprivation; extreme temperatures.
+>
+> Spatiotemporal disorientation: confinement in small places, natural light
+> denial.
+>
+> Sensory deprivation: hoods, goggles, gloves, deodorizing masks.
+>
+> Sensory assault: shouting, loud music, bright lights.
+>
+> Desperation: indefinite detention, sense of futility.
+>
+> Threats: of death or violence, to self or others, mock executions, witness
+> torture.
+>
+> Degradation: verbal, nudity, personal hygiene denial, overcrowding, contact
+> with pests, contact with excrement, sexual, ethnic, religious.
+>
+> Pharmacological manipulation: tranquilizers, hallucinogens.
 
 This list bothers me. Because it's stunning how easy it is to torture a human
 being. It also feels like my two well-defined paradigms of violence, material
@@ -309,9 +308,9 @@ Chinese Water Torture, which is not actually Chinese,
 > fear and mental deterioration in the subject. The pattern of the drops is
 > often irregular, and the cold sensation jarring, which causes anxiety as a
 > person tries to anticipate the next drip.
-
+>
 > ...
-
+>
 > There is very little evidence pertaining to the effectiveness of Torture for
 > interrogation purposes. The method itself causes lasting mental damage in
 > victims proportional to the intensity of exposure. The television series
@@ -358,38 +357,38 @@ the [YouTube video here][10].
 > railroad tracks and an hour north of the town in the gray dawn four horsement
 > sallied forth from a grove of trees and halted their mounts in the track
 > before him.
-
+>
 > He reined the horse. The riders sat silently. THe dark animals they road
 > raised their noses as if to search him out of the air. Beyond the trees the
 > bright flat shape of the river lay like a knife. He studied the men. He'd not
 > seen them move yet they seemed closer. They sat divided before him on the
 > track two and two.
-
+>
 > Qué tiene allá? they said.
-
+>
 > Los huesos de mi hermano.
-
+>
 > They sat in silence. One of the riders detached himself and rode forward. He
 > crossed the track in his riding forward and then crossed it back. Riding
 > erect, archly. As if at some sinister dressage. He halted the horse almost
 > within armreach and he leaned forward with his forearms crossed on the pommel
 > of his saddle.
-
+>
 > Huesos? he said.
-
+>
 > Sí.
-
+>
 > The new light in the east was behind him and his face was a shadow under the
 > shape of his hat. The other riders were dark figures yet. The rider sat
 > upright in the saddle and looked back towards them. Then he studied Billy
 > again.
-
+>
 > Abralo, he said.
-
+>
 > No.
-
+>
 > No?
-
+>
 > They sat. There was a flash of white beneath his hat as if he'd smiled. What
 > he'd done was to seize his horse's reins in his teeth. The next flash was a
 > knife that had come from somewhere in his clothing and caught the light in
@@ -401,7 +400,7 @@ the [YouTube video here][10].
 > man swore and he hauled the packhorse forward and dallied the leadrope to his
 > saddlehorn again and reached and cut the ropes and pulled the soogan of bones
 > to the ground.
-
+>
 > Billy was trying to undo the tie on the flap of the saddlebag to get his
 > pistol but Niño turned and stamped and backed away sawing his head. The
 > bandolero undallied and cast off the leadrope and stepped down. The packhorse
@@ -412,15 +411,15 @@ the [YouTube video here][10].
 > withered hands with the bones imprinted in teh leather skin, lying there with
 > his caven face turned up and clutching himself like some fragile being fraught
 > with code in that indifferent dawn.
-
+>
 > You son of a bitch, said Billy. You son of a bitch.
-
+>
 > Es un engaño? said the man. Es un engaño?
-
+>
 > He kicked at the poor desiccated thing. He turned with the knife.
-
+>
 > Dónde está el dinero?
-
+>
 > Las alforjas, called out one of the riders. Billy had swung under Niño's
 > bridlereins. But the horse must have begun to see the loosening of some
 > demoniac among them for he reared and backed and in his backing trod among the
@@ -605,14 +604,16 @@ In fact, one of the fascinating aspects of hunter gatherer tribes is that the
 rate of death by murder is exactly the same as that among chimpanzees.
 
 > Warfare was a routine occupation of primitive societies. Some 65% were at war
-> continuously, according to Keeley's* estimate, and 87% fought mroe than once a
+> continuously, according to Keeley's† estimate, and 87% fought mroe than once a
 > year. A typical tribal society lost about 0.5% of its population in combat
 > each year, Keeley found. Had the same casualty rate been suffered by the
 > population of the twentiety century, its war deaths would have totaled two
-> billion people. (151-152, [Before The Dawn: Recovering the Lost History of Our
-> Ancestors][12] by Nicholas Wade)
-
-\* Lawrence H. Keeley, an archaeologist at the University of Illinois at Chicago
+> billion people.
+>
+> _(151-152, [Before The Dawn: Recovering the Lost History of Our Ancestors][12]
+> by Nicholas Wade)_
+>
+> † Lawrence H. Keeley, an archaeologist at the University of Illinois at Chicago
 
 So what the hell is it that causes a person to be bloodthirsty, to celebrate
 death? Clearly there is some level of otherization. I am of the belief that all
