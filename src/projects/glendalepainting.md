@@ -8,7 +8,7 @@ tags: ["react", "javascript", "gatsby", "photoshop", "react-spring", "graphql"]
 ---
 
 This site was built for my father's commercial painting company. It was my first
-project in GatsbyJS and was meant to replace [glendalepainting.com][3].
+project in GatsbyJS and was meant to replace glendalepainting.com.
 Unfortunately, my father is rather slow to update things and he's still using
 the original Joomla-based site.
 
