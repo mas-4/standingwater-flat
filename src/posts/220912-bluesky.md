@@ -6,11 +6,11 @@ date: "2022-09-12"
 # Background
 
 In May I lost my dog. Her name was Sky, and I memorialized her in the blog post
-[On Death](220514-death). When I wrote that post, still fighting back tears
-the day she passed, Gatsby, the framework my site was built on, refused to start
-its development server on my machine. I wrote the post in neovim, pushed, and
-hoped Netlify would render it. It did, but the experience left a sour taste in
-my mouth. When I want to write, I don't want to have to deal with broken
+[On Death](220514-death). When I wrote that post, still fighting back tears the
+day she passed, Gatsby, the framework my site was built on, refused to start its
+development server on my machine. I wrote the post in neovim, pushed, and hoped
+Netlify would render it. It did, but the experience left a sour taste in my
+mouth. When I want to write, I don't want to have to deal with broken
 dependencies.
 
 So I thought, fuck it, I'll write my own SSG. It can't be too hard.
@@ -60,9 +60,9 @@ all had in common:
 
 The nature of the SSG I wanted (the absurdly simple templating bluesky has now)
 required that I write my own engine, but that was a choice I made from aesthetic
-reasons. I wanted something like sergey, only my own, and better (sergey doesn't
-have templates, and, if I recall, can't generate a list of links to markdown
-pages).
+reasons. I wanted something like sergey, only my own, and better (if I recall,
+can't generate a list of links to markdown pages; though, I believe sergey has
+recursive templates).
 
 But it doesn't have to be that way. There are an insane amount of templating
 engines that would be far easier to pop into a hand written SSG than to write
