@@ -131,7 +131,8 @@ img {
    This has to beat every other display rule, hence the !important. */
 img[src=""],
 a[href=""],
-.pill:empty {
+.pill:empty,
+.currently:empty {
   display: none !important;
 }
 
@@ -336,7 +337,11 @@ a[href=""],
   border-bottom: 1px solid var(--border);
 }
 
+/* The nav keeps the width of a normal sheet, so it stays put when a
+   wider page (projects) widens the paper around it. */
 .nav {
+  max-width: 52rem;
+  margin: 0 auto;
   padding: 1.1rem var(--pad);
   display: flex;
   align-items: center;
@@ -537,6 +542,157 @@ figcaption {
 .stratum-note code {
   background: rgb(255 255 255 / 0.08);
   color: var(--code);
+}
+
+/* Orbits: one section per interest, each from orbits/*.md */
+
+.as-of {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.orbit {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.orbit h2 {
+  margin: 0 0 0.5rem;
+}
+
+.orbit h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.orbit h2 a:hover {
+  color: var(--accent);
+}
+
+.currently {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.9rem;
+  border-left: 3px solid var(--sunset);
+  background: color-mix(in srgb, var(--sunset) 7%, transparent);
+  font-size: 1rem;
+}
+
+.currently::before {
+  content: "Currently ";
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sunset);
+  margin-right: 0.35rem;
+}
+
+.orbit-page .back {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.markdown details {
+  margin: 1.25rem 0;
+}
+
+.markdown summary {
+  cursor: pointer;
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* A zoomable image: the link opens #id, and :target shows it full size,
+   in a box you can pan around. No JavaScript. */
+
+.zoom {
+  display: block;
+  cursor: zoom-in;
+}
+
+.lightbox {
+  display: none;
+}
+
+.lightbox:target {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: auto;
+  background: rgb(10 16 15 / 0.96);
+  overscroll-behavior: contain;
+}
+
+.markdown .lightbox img {
+  display: block;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 1;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+
+/* The Anki heatmap and deck table, written by tools/anki.py */
+
+.anki {
+  margin: 1.5rem 0 1rem;
+}
+
+.heatmap {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.heatmap text {
+  font-family: var(--mono);
+  font-size: 7px;
+  fill: var(--muted);
+}
+
+.heatmap rect { rx: 1.5px; }
+.heatmap .h0 { fill: var(--border); }
+.heatmap .h1 { fill: color-mix(in srgb, var(--accent) 30%, var(--paper)); }
+.heatmap .h2 { fill: color-mix(in srgb, var(--accent) 55%, var(--paper)); }
+.heatmap .h3 { fill: color-mix(in srgb, var(--accent) 80%, var(--paper)); }
+.heatmap .h4 { fill: var(--sunset); }
+
+.anki-decks {
+  width: 100%;
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown .anki-decks td:nth-child(n + 2):not(.status),
+.markdown .anki-decks th:nth-child(n + 2) {
+  text-align: right;
+}
+
+.anki-decks .status {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* Projects */
