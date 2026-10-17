@@ -1,0 +1,14 @@
+<sky-template path="main.html" />
+
+<sky-block name="title">${frontmatter.title} · </sky-block>
+
+<sky-block name="content">
+  <article class="orbit-page">
+    <a class="back" href="/orbits">← all orbits</a>
+    <h1>${frontmatter.title}</h1>
+    <p class="currently">${frontmatter.currently}</p>
+    <div class="markdown">
+      <sky-slot name="content" />
+    </div>
+  </article>
+</sky-block>
