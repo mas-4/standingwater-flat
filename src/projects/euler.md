@@ -1,7 +1,7 @@
 ---
 title: "Euler Sci Website"
 url: "https://euler-sci.com"
-featureImage: "./euler.jpg"
+featureImage: "/projects/euler.jpg"
 short: "euler"
 category: "frontend"
 tags: ["javascript", "react", "gatsby", "ssg", "photoshop", "netlify", "graphql"]

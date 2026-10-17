@@ -1,7 +1,7 @@
 ---
 title: "Perpetual Inventory"
 url: ""
-featureImage: "./shipping_container.jpg"
+featureImage: "/projects/shipping_container.jpg"
 short: "pi"
 category: "fullstack"
 tags: ["react", "javascript", "jquery", "flask", "sqlalchemy", "materialize css", "celery", "redis", "postgres"]

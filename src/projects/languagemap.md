@@ -1,7 +1,7 @@
 ---
 title: "Language Map"
 url: "https://language-map.com"
-featureImage: "./languagemap.jpg"
+featureImage: "/projects/languagemap.jpg"
 short: "languagemap"
 category: "frontend"
 tags: ["python", "react", "beautifulsoup4", "scraping", "data", "pandas"]

@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>${meta.title}</title>
+    <title><sky-slot name="title" />${meta.title}</title>
+    <meta name="description" content="${meta.description}" />
+    <meta name="theme-color" content="#0f766e" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div class="body">
-      <sky-include path="_nav.html" />
-      <div class="content">
-        <sky-slot name="content" />
-      </div>
-    </div>
-  <sky-include path="_footer.html" />
+    <sky-include path="_nav.html" />
+    <main class="page">
+      <sky-slot name="content" />
+    </main>
+    <sky-include path="_footer.html" />
   </body>
 </html>

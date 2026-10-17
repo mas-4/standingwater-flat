@@ -2,6 +2,7 @@
 title: "vote.py"
 url: "https://github.com/mas-4/vote"
 short: "vote"
+featureImage: ""
 category: "automation"
 tags: ["twilio", "aws", "python", "civics"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Generated Anki decks"
 url: "https://github.com/mas-4/minimalpairs"
-featureImage: "./anki.jpg"
+featureImage: "/projects/anki.jpg"
 short: "anki"
 category: "automation"
 tags: ["python", "ibm watson", "beautifulsoup4"]

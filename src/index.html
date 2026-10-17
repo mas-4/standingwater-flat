@@ -1,20 +1,125 @@
 <sky-template path="_imports/main.html" />
 <sky-block name="content">
-  <p>Hi 👋,</p>
-  <p>
-    I'm Michael Sendker, a software developer from The Other Bay Area (Tampa
-    Bay).
-  </p>
-  <p>
-    I built this site using
-    <a href="https://github.com/mas-4/skyblue">skyblue</a>, a static site
-    generator I wrote myself in <a href="https://github.com/mas-4/cprime">c′</a>
-    and named after my dog, who passed not too long ago.
-  </p>
-  <p>
-    If you want to know more about me, check my <a href="/about">about page</a>.
-    If you want to see about hiring me, and my one man developer agency Standing
-    Water LLC, please email me: m at standingwater dot io. Hopefully you can
-    read that email address, I use words instead of symbols to foil the bots. 🫠
-  </p>
+  <section class="hero">
+    <p class="eyebrow">Hi 👋</p>
+    <h1>
+      I'm Michael Sendker, a software developer from The Other Bay Area (Tampa
+      Bay).
+    </h1>
+    <p class="lede">
+      If you want to know more about me, check my
+      <a href="/about">about page</a>, or look through my
+      <a href="/projects">projects</a>.
+    </p>
+    <p>
+      If you want to see about hiring me, and my one man developer agency
+      Standing Water LLC, please email me: m at standingwater dot io. Hopefully
+      you can read that email address, I use words instead of symbols to foil
+      the bots. 🫠
+    </p>
+  </section>
+
+  <section class="story">
+    <h2>How this site is built</h2>
+
+    <p>
+      standingwater.io has had a few lives. The first two were Gatsby sites: one
+      started from an HTML5 UP template, then a playful, colorful version I
+      built from scratch.
+    </p>
+
+    <p>
+      In May 2022, my dog Sky died. The day she passed, I sat down to write
+      about her, and Gatsby's development server refused to start. I wrote the
+      post anyway, pushed it, and hoped Netlify would build it. It did, but I
+      was done fighting broken dependencies just to write. So I wrote my own
+      static site generator, modeled on the wonderfully simple
+      <a href="https://sergey.cool/">Sergey</a>, and named it bluesky, after
+      her. I started it in C, switched to C++ after two weeks of struggling,
+      and by September 2022 this site was running on it.
+    </p>
+
+    <p>
+      I've been fascinated by parsers ever since I fumbled my way into
+      hand-writing them, with no idea what I was doing, to process texts for
+      <a href="https://github.com/Anno-Wiki">anno.wiki</a>. In 2023 I had an
+      idea for a language: C, plus the smallest possible version of classes.
+      Structs get methods, and <code>.</code> and <code>-&gt;</code> mean the
+      same thing. I called it c′ (c-prime: the derivative of C, so its files
+      end in <code>.dcdx</code>).
+    </p>
+
+    <p>
+      I always meant to build it myself. I read <em>Crafting Interpreters</em>,
+      and bought <em>Engineering a Compiler</em> and the dragon book. I spent a
+      year wanting to learn compilers and performance properly, and yak shaved
+      my way into the math underneath it all with
+      <a href="https://github.com/mas-4/cheap-experiments">cheap experiments</a>
+      instead of just focusing on compilers. Then I got nerd sniped by epic
+      poetry and learning Latin, and the compiler books stayed on the shelf.
+    </p>
+
+    <p>
+      In 2026, after spending a lot of time using Claude Code for some new
+      personal experiments and projects, on a lark I asked Claude to try
+      building c′.
+    </p>
+    <img
+      class="time-card"
+      src="/five-minutes-later.jpg"
+      alt="Five minutes later..."
+      width="960"
+      height="540"
+    />
+
+    <p>
+      <a href="https://github.com/mas-4/cprime">cprime</a>, a c′
+      compiler forked from Rui Ueyama's
+      <a href="https://github.com/rui314/chibicc">chibicc</a> that now compiles
+      itself (the receiver ended up being called <code>ego</code>).
+      What a let down. Here's a Hello, World:
+    </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+struct Greeter {
+  char *name;
+  void greet(void);
+};
+
+void Greeter.greet(void) {
+  printf("Hello, %s!\n", ego.name);
+}
+
+int main(void) {
+  struct Greeter g = {"world"};
+  g.greet();
+  return 0;
+}</code></pre>
+
+    <p>
+      From there I thought, let's get it self-hosting! No sooner asked than
+      done. Then let's rewrite bluesky in c′! Et voilà:
+      <a href="https://github.com/mas-4/skyblue">skyblue</a>, a rewrite of
+      bluesky in c′ 😞. (Jack Dorsey took bluesky out from under me! 🤬) No
+      matter, her name actually was Sky Blue Sendker. But once that was done,
+      all that was left was for it to rewrite standingwater.io in skyblue.
+    </p>
+
+    <p class="punchline">🫲 Atque ecce. 🫱</p>
+
+    <p>
+      This is all very bittersweet. A mountain of effort in 15 minutes to get
+      the thing I dreamed of for 3–5 years. But we're all figuring out what
+      we're good for these days. You can see some of my new projects on the
+      <a href="/projects">projects</a> page. AI assisted projects are clearly
+      marked.
+    </p>
+
+    <p>
+      So anyway, today this site is built by skyblue, which is compiled by
+      cprime, which bootstraps itself from C on every deploy to Netlify via
+      GitHub.
+    </p>
+  </section>
 </sky-block>

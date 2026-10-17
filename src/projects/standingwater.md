@@ -1,7 +1,7 @@
 ---
 title: "standingwater.io v2"
 url: "https://github.com/mas-4/standingwater"
-featureImage: "./standingwater.png"
+featureImage: "/projects/standingwater.png"
 short: "standingwater"
 category: "frontend"
 tags: ["react", "javascript", "gatsby", "ssg", "react-spring", "netlify", "graphql"]

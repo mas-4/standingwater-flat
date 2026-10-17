@@ -1,7 +1,7 @@
 ---
 title: "ask.fiteyes.com"
 url: "https://ask.fiteyes.com"
-featureImage: "./fiteyes.png"
+featureImage: "/projects/fiteyes.png"
 short: "fiteyes"
 category: "backend"
 tags: ["django", "postgres", "celery"]

@@ -1,7 +1,7 @@
 ---
 title: "Amazon BuyBox Notifier"
 url: ""
-featureImage: "./amazon.jpg"
+featureImage: "/projects/amazon.jpg"
 short: "amazon"
 category: "automation"
 tags: ["python", "beautifulsoup4", "postgres", "elasticsearch", "data"]

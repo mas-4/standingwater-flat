@@ -1,7 +1,7 @@
 ---
 title: "Roastuino"
 url: "https://github.com/mas-4/coffee-roaster/"
-featureImage: "./roastuino.jpg"
+featureImage: "/projects/roastuino.jpg"
 short: "roastuino"
 category: "hardware"
 tags: ["arduino", "c++", "modbus"]

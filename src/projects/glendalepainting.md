@@ -1,7 +1,7 @@
 ---
 title: "glendalepainting.com"
 url: "https://glendalepainting.netlify.app"
-featureImage: "./glendalepainting.jpg"
+featureImage: "/projects/glendalepainting.jpg"
 short: "glendale"
 category: "frontend"
 tags: ["react", "javascript", "gatsby", "photoshop", "react-spring", "graphql"]

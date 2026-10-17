@@ -1,7 +1,7 @@
 ---
 title: "Duvall Invitational Realtime Scoring Site"
 url: "https://duvallinvitational.com"
-featureImage: "./duvall.png"
+featureImage: "/projects/duvall.png"
 short: "duvall"
 category: "frontend"
 tags: ["ssg", "sergey", "excel", "onedrive", "javascript"]

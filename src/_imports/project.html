@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>${meta.title} - ${frontmatter.title}</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <div class="body">
-      <sky-include path="_nav.html" />
-      <h1>${frontmatter.title}</h1>
-      <div class="markdown">
-        <img src="${frontmatter.featureImage}" />
-        <sky-slot name="content" />
-      </div>
+<sky-template path="main.html" />
+
+<sky-block name="title">${frontmatter.title} · </sky-block>
+
+<sky-block name="content">
+  <article class="project">
+    <a class="back" href="/projects">← all projects</a>
+    <p class="pill">${frontmatter.category}</p>
+    <h1>${frontmatter.title}</h1>
+    <a class="visit" href="${frontmatter.url}">${frontmatter.url}</a>
+    <img class="feature" src="${frontmatter.featureImage}" alt="" />
+    <div class="markdown">
+      <sky-slot name="content" />
     </div>
-    <sky-include path="_footer.html" />
-  </body>
-</html>
+  </article>
+</sky-block>

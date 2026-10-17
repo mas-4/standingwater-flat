@@ -1,7 +1,7 @@
 ---
 title: "standingwater.io v1"
 url: "https://blog.standingwater.io"
-featureImage: "./site.jpg"
+featureImage: "/projects/site.jpg"
 short: "stdwtr"
 category: "frontend"
 tags: ["react", "javascript", "gatsby", "ssg", "netlify", "graphql"]

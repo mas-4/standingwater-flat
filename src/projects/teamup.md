@@ -2,6 +2,7 @@
 title: "teamup.py"
 url: "https://github.com/mas-4/teamup"
 short: "teamup"
+featureImage: ""
 category: "automation"
 tags: ["combinatronics", "python"]
 ---

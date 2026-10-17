@@ -1,7 +1,7 @@
 ---
 title: "Maudlin"
 url: "https://maudlin.standingwater.io"
-featureImage: "./maudlin.png"
+featureImage: "/projects/maudlin.png"
 short: "maudlin"
 category: "fullstack"
 tags:
