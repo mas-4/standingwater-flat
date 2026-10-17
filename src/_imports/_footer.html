@@ -57,8 +57,11 @@
     </svg>
   </a>
   </div>
-  <p class="copyright">
-    © 2022–2026 Michael Sendker · built with
-    <a href="https://github.com/mas-4/skyblue">skyblue</a>
-  </p>
+  <!-- skyblue fills these in as it builds the site. -->
+  <pre class="receipt" aria-label="How this page was built"><span class="prompt">$</span> skyblue --version
+skyblue <a href="https://github.com/mas-4/skyblue">${sky.version}</a> (compiled by cprime <a href="https://github.com/mas-4/cprime">${sky.compiler}</a>)
+<span class="prompt">$</span> skyblue -i src -o build
+skyblue: ${sky.pages} pages and ${sky.files} files -> build
+<span class="note"># ${sky.date}, ${sky.time}, ${sky.ms} ms. No JavaScript.</span></pre>
+  <p class="copyright">© 2022–2026 Michael Sendker</p>
 </footer>

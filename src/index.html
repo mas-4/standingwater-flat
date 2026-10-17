@@ -81,22 +81,12 @@
       What a let down. Here's a Hello, World:
     </p>
 
-<pre><code>#include &lt;stdio.h&gt;
-
-struct Greeter {
-  char *name;
-  void greet(void);
-};
-
-void Greeter.greet(void) {
-  printf("Hello, %s!\n", ego.name);
-}
-
-int main(void) {
-  struct Greeter g = {"world"};
-  g.greet();
-  return 0;
-}</code></pre>
+<figure class="code-figure">
+      <pre class="listing"><code><sky-source path="../cprime/examples/hello.dcdx" /></code></pre>
+      <figcaption>
+        <a href="https://github.com/mas-4/cprime/blob/main/examples/hello.dcdx">cprime/examples/hello.dcdx</a>
+      </figcaption>
+    </figure>
 
     <p>
       From there I thought, let's get it self-hosting! No sooner asked than
@@ -120,7 +110,53 @@ int main(void) {
     <p>
       So anyway, today this site is built by skyblue, which is compiled by
       cprime, which bootstraps itself from C on every deploy to Netlify via
-      GitHub.
+      GitHub. Here's what's under this paragraph, from the top down. skyblue
+      pulled each excerpt out of the real source when it built this page, and
+      the <label for="xray" class="inline-toggle">source</label> button at the
+      top lifts the page off the files it was made from.
     </p>
+
+    <ol class="strata">
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">the template</span>
+          <a href="https://github.com/mas-4/standingwater-flat/blob/main/src/_imports/main.html">src/_imports/main.html</a>
+        </p>
+        <pre class="listing"><code><sky-source path="_imports/main.html" from="<main" to="</main>" /></code></pre>
+        <p class="stratum-note">This paragraph is in the <code>content</code> slot of the site's main template.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">skyblue, in c′</span>
+          <a href="https://github.com/mas-4/skyblue/blob/main/src/render.dcdx">skyblue/src/render.dcdx</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../skyblue/src/render.dcdx" from="void Render.slot" to="}" /></code></pre>
+        <p class="stratum-note">skyblue fills the slot with this method. <code>ego</code> is the <code>Render</code> it's called on.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">cprime, in c′</span>
+          <a href="https://github.com/mas-4/cprime/blob/main/parse.dcdx">cprime/parse.dcdx</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../cprime/parse.dcdx" from="Member *Type.method" to="}" /></code></pre>
+        <p class="stratum-note"><code>ego.slots.get(…)</code> is a method call, and this is how cprime finds the method. The compiler is written in c′ too.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">cprime's stage 0, in C</span>
+          <a href="https://github.com/mas-4/cprime/blob/main/bootstrap/parse.c">cprime/bootstrap/parse.c</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../cprime/bootstrap/parse.c" from="static Member *get_method" to="}" /></code></pre>
+        <p class="stratum-note">The first cprime is compiled from a frozen copy written in plain C. Here's the same function, before c′.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">bedrock</span>
+          <a href="https://github.com/mas-4/standingwater-flat/blob/main/build.sh">build.sh</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../build.sh" /></code></pre>
+        <p class="stratum-note">Netlify runs this on every push: <code>cc</code> builds stage 0, stage 0 builds cprime, cprime builds skyblue, and skyblue builds this page.</p>
+      </li>
+    </ol>
   </section>
 </sky-block>
