@@ -1,0 +1,8 @@
+[build]
+  command = "./build.sh"
+  publish = "build"
+
+# The site doesn't use Node, but Netlify sets it up anyway. The site
+# settings pinned 16, which is end-of-life.
+[build.environment]
+  NODE_VERSION = "24"

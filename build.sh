@@ -1,7 +1,8 @@
 #!/bin/bash
-[ ! -d "/path/to/dir" ] && mkdir bluesky/build
-cd bluesky/build
-cmake ..
-cmake --build .
-cd ../../
-./bluesky/build/bluesky -vfi src -o build
+# Netlify runs this (see netlify.toml). skyblue is written in c′, so build
+# the compiler first; it bootstraps from C, so only cc and make are needed.
+set -euo pipefail
+git submodule update --init
+make -C cprime
+make -C skyblue
+./skyblue/skyblue -i src -o build
