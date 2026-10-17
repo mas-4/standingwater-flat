@@ -4,6 +4,9 @@ url: "https://ask.fiteyes.com"
 featureImage: "/projects/fiteyes.png"
 short: "fiteyes"
 category: "backend"
+ai: ""
+order: "16"
+year: "2021"
 tags: ["django", "postgres", "celery"]
 ---
 

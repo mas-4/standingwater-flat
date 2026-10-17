@@ -4,6 +4,9 @@ url: ""
 featureImage: "/projects/shipping_container.jpg"
 short: "pi"
 category: "fullstack"
+ai: ""
+order: "18"
+year: "2021"
 tags: ["react", "javascript", "jquery", "flask", "sqlalchemy", "materialize css", "celery", "redis", "postgres"]
 ---
 One of the first projects I did for [HtmMbs][0], JP, the owner, wanted a way to

@@ -4,6 +4,9 @@ url: "https://github.com/mas-4/minimalpairs"
 featureImage: "/projects/anki.jpg"
 short: "anki"
 category: "automation"
+ai: ""
+order: "21"
+year: "2019"
 tags: ["python", "ibm watson", "beautifulsoup4"]
 ---
 Learning French from English is sometimes tricky. Especially with recognizing

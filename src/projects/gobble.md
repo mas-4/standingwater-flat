@@ -4,6 +4,9 @@ url: "https://github.com/mas-4/gobble"
 short: "gobble"
 featureImage: ""
 category: "automation"
+ai: ""
+order: "23"
+year: "2019"
 tags: ["security", "python"]
 ---
 This was a one off quick project as a joke idea. It's a python script using the

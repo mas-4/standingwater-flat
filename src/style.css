@@ -102,10 +102,11 @@ img {
   height: auto;
 }
 
-/* Projects without an image or a link leave these empty. This has to
-   beat every other display rule, hence the !important. */
+/* Projects without an image, a link or an AI note leave these empty.
+   This has to beat every other display rule, hence the !important. */
 img[src=""],
-a[href=""] {
+a[href=""],
+.pill:empty {
   display: none !important;
 }
 
@@ -256,7 +257,32 @@ a[href=""] {
     linear-gradient(135deg, var(--pill-bg), var(--border));
 }
 
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Without an image, the card shows the project's name over the water. */
+.card-image::before {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--accent);
+  opacity: 0.55;
+}
+
 .card-image img {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -284,6 +310,30 @@ a[href=""] {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.pills .year {
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.project .pills .year {
+  margin-left: 0.4rem;
+}
+
+.pill-ai {
+  background: color-mix(in srgb, var(--sunset) 14%, transparent);
+  color: var(--sunset);
 }
 
 .project .back {

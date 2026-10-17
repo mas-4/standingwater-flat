@@ -4,6 +4,9 @@ url: "https://polling.netlify.app"
 featureImage: "/projects/polling.png"
 short: "polling"
 category: "automation"
+ai: ""
+order: "10"
+year: "2020"
 tags:
   [
     "data",

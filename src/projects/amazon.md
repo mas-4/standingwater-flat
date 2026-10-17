@@ -4,6 +4,9 @@ url: ""
 featureImage: "/projects/amazon.jpg"
 short: "amazon"
 category: "automation"
+ai: ""
+order: "17"
+year: "2021"
 tags: ["python", "beautifulsoup4", "postgres", "elasticsearch", "data"]
 ---
 This project was for a client who sells various vitamins on Amazon. I developed,

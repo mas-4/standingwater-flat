@@ -4,6 +4,9 @@ url: "https://euler-sci.com"
 featureImage: "/projects/euler.jpg"
 short: "euler"
 category: "frontend"
+ai: ""
+order: "12"
+year: "2020"
 tags: ["javascript", "react", "gatsby", "ssg", "photoshop", "netlify", "graphql"]
 ---
 This was a pretty simple project but turned out so beautiful I love it. It was

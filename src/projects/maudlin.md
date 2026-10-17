@@ -1,9 +1,12 @@
 ---
-title: "Maudlin"
-url: "https://maudlin.standingwater.io"
+title: "Maudlin (2021)"
+url: "https://github.com/mas-4/maudlin"
 featureImage: "/projects/maudlin.png"
 short: "maudlin"
 category: "fullstack"
+ai: ""
+order: "07"
+year: "2021"
 tags:
   [
     "data",
@@ -18,6 +21,9 @@ tags:
     "postgres",
   ]
 ---
+
+*This was the first version of what's now [bignews.day](/projects/bignews). It lived at
+maudlin.standingwater.io from 2021 until I rebuilt it in 2024.*
 
 Before this, I had written a lot of scrapers, but never a crawler, and I'd
 never tried scrapy. So I wanted to build a crawler with scrapy, use it to

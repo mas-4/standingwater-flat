@@ -4,6 +4,9 @@ url: "https://github.com/Anno-Wiki/icc"
 featureImage: "/projects/annowiki.png"
 short: "annowiki"
 category: "fullstack"
+ai: ""
+order: "08"
+year: "2018 – 2020"
 tags:
   [
     "python",

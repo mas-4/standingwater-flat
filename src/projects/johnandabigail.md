@@ -4,6 +4,9 @@ url: "https://github.com/mas-4/johnandabigail"
 featureImage: "/projects/john_and_abbie.png"
 short: "john"
 category: "automation"
+ai: ""
+order: "20"
+year: "2020"
 tags:
   [
     "python",
