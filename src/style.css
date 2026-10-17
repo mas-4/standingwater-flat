@@ -1,98 +1,721 @@
-/* CSS HEX */
+/* standingwater: paper and swamp water, with a Tampa sunset for accent.
+
+   Every page is a sheet of paper lying on the source code it was built
+   from (the "ground"). The source button lifts the sheet. */
+
 :root {
-  --link-visited: #a8dadcff;
-  --link: #457b9dff;
-  --link-hover: #1d3557ff;
-  --code: #f1faee;
-  --code-bg: #14213d;
+  --bg: #f6f4ee;
+  --paper: #fffdf8;
+  --ground: #142420;
+  --ground-ink: #a9cbc2;
+  --surface: #ffffff;
+  --text: #1d2a28;
+  --muted: #5a6b67;
+  --border: #e2ddd0;
+  --accent: #0f766e;
+  --accent-strong: #0b5a54;
+  --sunset: #c2410c;
+  --pill-bg: #e3f1ee;
+  --code-bg: #14211f;
+  --code: #e8f1ee;
+  --shadow: 0 1px 2px rgb(20 33 31 / 0.06), 0 8px 24px rgb(20 33 31 / 0.08);
+  --sheet-shadow: 0 2px 4px rgb(0 0 0 / 0.25), 0 24px 60px -12px rgb(0 0 0 / 0.6);
+
+  /* Syntax, on the dark of the ground and of code blocks */
+  --hl-sky: #f4a261;
+  --hl-var: #e9c46a;
+  --hl-tag: #79bdb2;
+  --hl-str: #b6d89a;
+  --hl-com: #6c8a83;
+  --hl-kw: #5fd4c4;
+  --hl-type: #9ccfe8;
+  --hl-ego: #ff8a65;
+  --hl-pp: #c7a6e6;
+  --hl-num: #e9c46a;
+  --hl-ln: #4a6560;
+
+  --margin: clamp(0.5rem, 3vw, 2.5rem); /* ground showing around the sheet */
+  --pad: clamp(1.25rem, 5vw, 4rem); /* inside the sheet */
+  --peek: 3.5rem; /* how much of a lifted sheet stays on screen */
+
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  color-scheme: light;
 }
 
-.body {
-  width: 50%;
-  margin: 0 auto;
-  font-family: Arial, Helvetica, San-Serif;
-  font-size: 20px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1716;
+    --paper: #16211f;
+    --ground: #0a100f;
+    --ground-ink: #8fb3a9;
+    --surface: #1b2826;
+    --text: #e4ebe8;
+    --muted: #9db0aa;
+    --border: #26342f;
+    --accent: #5fd4c4;
+    --accent-strong: #8fe5d9;
+    --sunset: #f4a261;
+    --pill-bg: #1d3330;
+    --code-bg: #0a1110;
+    --code: #d9e6e2;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.35);
+    --sheet-shadow: 0 0 0 1px rgb(255 255 255 / 0.05), 0 24px 60px -12px rgb(0 0 0 / 0.8);
+    color-scheme: dark;
+  }
 }
 
-.content {
-  margin: 0 2em;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-nav {
-  margin: 1em auto;
-  display: flex;
-  justify-content: space-between;
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
-#title {
-  font-weight: bold;
-  font-size: 2em;
-  display: inline;
-}
-
-#title a {
-  color: black;
-}
-
-#title a:hover {
-  color: black;
-}
-
-#title a:visited {
-  color: black;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 15em;
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.65;
 }
 
 a {
-  text-decoration: none;
-  color: var(--link);
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--link-hover);
-}
-a:visited {
-  color: var(--link-visited);
+  color: var(--accent-strong);
 }
 
-.links a {
-  text-decoration: none;
-  color: var(--link);
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
-.links a:hover {
-  color: var(--link-hover);
+h1 {
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+  margin: 0 0 0.5em;
 }
 
-.markdown {
-  font-family: "Times New Roman", Times, serif;
+h2 {
+  font-size: 1.5rem;
+  margin: 2em 0 0.6em;
 }
 
-.markdown img {
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--pill-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+img {
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
 }
 
-.markdown pre {
-  margin-left: 1em;
-  padding: 1em;
-  background-color: var(--code-bg);
+/* Projects without an image, a link or an AI note leave these empty.
+   This has to beat every other display rule, hence the !important. */
+img[src=""],
+a[href=""],
+.pill:empty {
+  display: none !important;
+}
+
+/* The desk: the sheet and the ground share one grid cell. */
+
+.desk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.sheet,
+.ground {
+  grid-area: 1 / 1;
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  width: min(100% - 2 * var(--margin), 52rem);
+  margin: var(--margin) 0;
+  background: var(--paper);
+  box-shadow: var(--sheet-shadow);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sheet:has(.cards) {
+  width: min(100% - 2 * var(--margin), 72rem);
+}
+
+/* At rest the source shows only around the edges of the sheet, faintly.
+   It's exactly as tall as the sheet until the sheet is lifted. */
+.ground {
+  height: 0;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 0 var(--margin) var(--margin);
+  color: var(--ground-ink);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  opacity: 0.3;
+  transition: opacity 0.6s ease;
+}
+
+.ground-head {
+  visibility: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 1.25rem 0 1rem;
+  background: var(--ground);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.ground-head p {
+  margin: 0;
+}
+
+.ground a {
+  color: var(--hl-kw);
+}
+
+.ground-close {
+  color: var(--hl-sky);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.source {
+  margin: 0 0 2.5rem;
+}
+
+.source-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 0.4rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  margin-bottom: 0.6rem;
+}
+
+.source-head a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ground .listing {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: inherit;
+  overflow: hidden;
+}
+
+/* The source button: a checkbox, labelled from the nav, the story, the
+   ground and the lifted sheet itself. */
+.xray {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.source-toggle,
+.inline-toggle {
+  cursor: pointer;
+}
+
+.source-toggle {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--sunset);
+}
+
+.source-toggle::before {
+  content: "</> ";
+}
+
+.source-toggle:hover {
+  color: var(--accent);
+}
+
+.inline-toggle {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--sunset);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.xray:focus-visible ~ .desk .source-toggle {
+  outline: 2px solid var(--sunset);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sheet-cover {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  cursor: pointer;
+  /* Blank paper over the strip, so it reads as the edge of a sheet */
+  background: linear-gradient(to right, var(--paper) var(--peek), transparent var(--peek));
+}
+
+/* On the strip of a lifted sheet that stays on screen */
+.sheet-cover::after {
+  content: "← back to the page";
+  position: absolute;
+  top: 1.5rem;
+  left: calc(var(--peek) / 2 - 0.6em);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sunset);
+  white-space: nowrap;
+}
+
+.xray:checked ~ .desk .sheet {
+  transform: translateX(calc(50vw + 50% - var(--peek))) scale(0.98);
+}
+
+.xray:checked ~ .desk .sheet-cover {
+  display: block;
+}
+
+.xray:checked ~ .desk .ground {
+  height: auto;
+  overflow: visible;
+  padding-right: calc(var(--peek) + var(--margin));
+  font-size: 0.85rem;
+  opacity: 1;
+}
+
+.xray:checked ~ .desk .ground-head {
+  visibility: visible;
+}
+
+.xray:checked ~ .desk .ground .listing {
+  overflow-x: auto;
+}
+
+/* Header */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  padding: 1.1rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--sans);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.brand-mark {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.nav-links {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Page */
+
+.page {
+  flex: 1;
+  padding: 3rem var(--pad) 4rem;
+}
+
+.lede {
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--sunset);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 1.3rem + 1.8vw, 2.3rem);
+}
+
+.story {
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* The SpongeBob "Five minutes later..." card on the home page */
+.time-card {
+  display: block;
+  width: 100%;
+  margin: 1.75rem 0;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.punchline {
+  margin: 2.5rem 0;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+/* Source listings: one span per line, numbered by skyblue. */
+
+.listing {
+  font-size: 0.85rem;
+}
+
+.listing .line::before {
+  content: attr(data-line);
+  display: inline-block;
+  min-width: 3ch;
+  margin-right: 1.6ch;
+  text-align: right;
+  color: var(--hl-ln);
+  user-select: none;
+}
+
+.listing .sky { color: var(--hl-sky); }
+.listing .var { color: var(--hl-var); }
+.listing .tag { color: var(--hl-tag); }
+.listing .str { color: var(--hl-str); }
+.listing .com { color: var(--hl-com); font-style: italic; }
+.listing .kw { color: var(--hl-kw); }
+.listing .type { color: var(--hl-type); }
+.listing .ego { color: var(--hl-ego); font-weight: 700; }
+.listing .pp { color: var(--hl-pp); }
+.listing .num { color: var(--hl-num); }
+
+.code-figure {
+  margin: 1.5rem 0;
+}
+
+.code-figure pre {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* The strata on the home page: a cut through the page, down to the
+   ground it sits on. Each layer is darker than the one above it. */
+
+.strata {
+  list-style: none;
+  margin: 2.5rem calc(-1 * var(--pad)) 0;
+  padding: 0;
   color: var(--code);
-  overflow: scroll;
 }
 
+.stratum {
+  padding: 1.1rem var(--pad) 1.2rem;
+  background: color-mix(in oklab, var(--ground), white var(--lift));
+  border-top: 1px solid rgb(255 255 255 / 0.06);
+}
+
+.stratum:nth-child(1) { --lift: 16%; }
+.stratum:nth-child(2) { --lift: 11%; }
+.stratum:nth-child(3) { --lift: 7%; }
+.stratum:nth-child(4) { --lift: 3.5%; }
+.stratum:nth-child(5) { --lift: 0%; }
+
+.stratum-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin: 0 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.stratum-name {
+  color: var(--hl-sky);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stratum-head a {
+  color: var(--ground-ink);
+}
+
+.stratum pre {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.stratum-note {
+  margin: 0.7rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ground-ink);
+}
+
+.stratum-note code {
+  background: rgb(255 255 255 / 0.08);
+  color: var(--code);
+}
+
+/* Projects */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  color: var(--text);
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgb(20 33 31 / 0.08), 0 14px 32px rgb(20 33 31 / 0.14);
+}
+
+.card-image {
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(circle at 30% 40%, rgb(15 118 110 / 0.25), transparent 60%),
+    linear-gradient(135deg, var(--pill-bg), var(--border));
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Without an image, the card shows the project's name over the water. */
+.card-image::before {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--accent);
+  opacity: 0.55;
+}
+
+.card-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 0.9rem 1.1rem 1.2rem;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin: 0.4rem 0 0;
+}
+
+.pill {
+  display: inline-block;
+  margin: 0;
+  padding: 0.15em 0.65em;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  color: var(--accent-strong);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.pills .year {
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.project .pills .year {
+  margin-left: 0.4rem;
+}
+
+.pill-ai {
+  background: color-mix(in srgb, var(--sunset) 14%, transparent);
+  color: var(--sunset);
+}
+
+.project .back {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.project h1 {
+  margin-top: 0.6rem;
+}
+
+.project .visit {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+.project .visit::after {
+  content: " ↗";
+}
+
+.project .feature {
+  display: block;
+  margin: 1.75rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Markdown */
+
+.markdown img {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+}
+
+pre {
+  padding: 1rem 1.25rem;
+  background: var(--code-bg);
+  color: var(--code);
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.markdown blockquote,
 .markdown .poetry {
-  padding: 0.5em;
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  padding: 0.5em 10px;
-  margin: 1.5em 10px;
+  margin: 1.5em 0;
+  padding: 0.25em 1.25em;
+  border-left: 4px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  color: var(--muted);
 }
 
 .markdown .poetry p {
@@ -101,82 +724,124 @@ a:visited {
   text-indent: -2em;
 }
 
-.markdown blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+.markdown table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
 }
 
-.markdown blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+.markdown th,
+.markdown td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
 }
 
-.markdown blockquote p {
-  display: block;
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem var(--pad) 2.5rem;
+  text-align: center;
+  font-family: var(--sans);
+  color: var(--muted);
 }
 
-ul li {
-  list-style-type: "- ";
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-bottom: 1rem;
 }
 
-#footer {
-  margin: auto;
-  display: block;
-  width: fit-content;
+.social a {
+  color: var(--muted);
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
-#footer .links {
-  width: fit-content;
-  margin: auto;
+.social a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
-#footer svg {
-  max-width: 2em;
-  width: 2em;
-  margin: 2em;
+.social svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-@media only screen and (max-width: 600px) {
-  .body {
-    width: 100%;
+.copyright {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* What skyblue said when it built the page. */
+.receipt {
+  display: table;
+  margin: 0 auto 1.25rem;
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.receipt a {
+  color: inherit;
+}
+
+.receipt .prompt {
+  color: var(--sunset);
+  user-select: none;
+}
+
+.receipt .note {
+  opacity: 0.75;
+}
+
+/* Small screens */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.05rem;
   }
-  .content {
-    margin: 0;
-  }
-  nav {
-    margin: 0em auto;
-    display: flex;
+
+  .nav {
     flex-direction: column;
-  }
-  nav #title {
-    display: block;
-    font-weight: bold;
-    font-size: 1em;
-  }
-  nav .links {
-    display: block;
-    width: 100%;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  #footer {
-    margin: auto;
-    display: block;
-    width: 100%;
-  }
-  #footer svg {
-    max-width: 2em;
-    width: 1em;
-    margin: 1em;
+  .page {
+    padding-top: 2rem;
   }
 
-  .markdown pre {
-    margin: 0;
+  :root {
+    --peek: 2.25rem;
+  }
+
+  .page pre {
+    margin-left: calc(-1 * var(--pad));
+    margin-right: calc(-1 * var(--pad));
+    border-radius: 0;
+  }
+
+  .listing {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .social a,
+  .sheet,
+  .ground {
+    transition: none;
+  }
+
+  .card:hover,
+  .social a:hover {
+    transform: none;
   }
 }

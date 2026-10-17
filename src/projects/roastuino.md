@@ -1,9 +1,12 @@
 ---
 title: "Roastuino"
 url: "https://github.com/mas-4/coffee-roaster/"
-featureImage: "./roastuino.jpg"
+featureImage: "/projects/roastuino.jpg"
 short: "roastuino"
 category: "hardware"
+ai: ""
+order: "19"
+year: "2021"
 tags: ["arduino", "c++", "modbus"]
 ---
 As part of my continuing obsession with coffee I discovered that I could get a

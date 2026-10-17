@@ -1,9 +1,12 @@
 ---
 title: "standingwater.io v1"
 url: "https://blog.standingwater.io"
-featureImage: "./site.jpg"
+featureImage: "/projects/site.jpg"
 short: "stdwtr"
 category: "frontend"
+ai: ""
+order: "14"
+year: "2020"
 tags: ["react", "javascript", "gatsby", "ssg", "netlify", "graphql"]
 ---
 ***Note: This refers to the previous iteration of this site***

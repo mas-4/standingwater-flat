@@ -3,17 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>${meta.title}</title>
+    <title><sky-slot name="title" />${meta.title}</title>
+    <meta name="description" content="${meta.description}" />
+    <meta name="theme-color" content="#142420" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div class="body">
-      <sky-include path="_nav.html" />
-      <div class="content">
-        <sky-slot name="content" />
+    <!-- Every page is a sheet of paper lying on the source it was built
+         from. This checkbox lifts the sheet; no JavaScript involved. -->
+    <input type="checkbox" id="xray" class="xray" aria-label="Show the source of this page" />
+    <div class="desk">
+      <div class="sheet">
+        <label for="xray" class="sheet-cover" title="Back to the page"></label>
+        <sky-include path="_nav.html" />
+        <main class="page">
+          <sky-slot name="content" />
+        </main>
+        <sky-include path="_footer.html" />
       </div>
+      <aside class="ground" aria-label="The source of this page">
+        <header class="ground-head">
+          <p>
+            <a href="https://github.com/mas-4/skyblue">skyblue</a> built this
+            page from these files, in the order it used them.
+          </p>
+          <label for="xray" class="ground-close">back to the page →</label>
+        </header>
+        <sky-sources item="source.html" />
+      </aside>
     </div>
-  <sky-include path="_footer.html" />
   </body>
 </html>

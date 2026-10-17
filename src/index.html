@@ -1,20 +1,162 @@
 <sky-template path="_imports/main.html" />
 <sky-block name="content">
-  <p>Hi 👋,</p>
-  <p>
-    I'm Michael Sendker, a software developer from The Other Bay Area (Tampa
-    Bay).
-  </p>
-  <p>
-    I built this site using
-    <a href="https://github.com/mas-4/skyblue">skyblue</a>, a static site
-    generator I wrote myself in <a href="https://github.com/mas-4/cprime">c′</a>
-    and named after my dog, who passed not too long ago.
-  </p>
-  <p>
-    If you want to know more about me, check my <a href="/about">about page</a>.
-    If you want to see about hiring me, and my one man developer agency Standing
-    Water LLC, please email me: m at standingwater dot io. Hopefully you can
-    read that email address, I use words instead of symbols to foil the bots. 🫠
-  </p>
+  <section class="hero">
+    <p class="eyebrow">Hi 👋</p>
+    <h1>
+      I'm Michael Sendker, a software developer from The Other Bay Area (Tampa
+      Bay).
+    </h1>
+    <p class="lede">
+      I find the pain points in how companies build and test their software,
+      and engineer them away. If you want to know more about me, check my
+      <a href="/about">about page</a>, or look through my
+      <a href="/projects">projects</a>.
+    </p>
+    <p>
+      If you want to see about hiring me, and my one man developer agency
+      Standing Water LLC, please email me: m at standingwater dot io. Hopefully
+      you can read that email address, I use words instead of symbols to foil
+      the bots. 🫠
+    </p>
+  </section>
+
+  <section class="story">
+    <h2>How this site is built</h2>
+
+    <p>
+      standingwater.io has had a few lives. The first two were Gatsby sites: one
+      started from an HTML5 UP template, then a playful, colorful version I
+      built from scratch.
+    </p>
+
+    <p>
+      In May 2022, my dog Sky died. The day she passed, I sat down to write
+      about her, and Gatsby's development server refused to start. I wrote the
+      post anyway, pushed it, and hoped Netlify would build it. It did, but I
+      was done fighting broken dependencies just to write. So I wrote my own
+      static site generator, modeled on the wonderfully simple
+      <a href="https://sergey.cool/">Sergey</a>, and named it bluesky, after
+      her. I started it in C, switched to C++ after two weeks of struggling,
+      and by September 2022 this site was running on it.
+    </p>
+
+    <p>
+      I've been fascinated by parsers ever since I fumbled my way into
+      hand-writing them, with no idea what I was doing, to process texts for
+      <a href="https://github.com/Anno-Wiki">anno.wiki</a>. In 2023 I had an
+      idea for a language: C, plus the smallest possible version of classes.
+      Structs get methods, and <code>.</code> and <code>-&gt;</code> mean the
+      same thing. I called it c′ (c-prime: the derivative of C, so its files
+      end in <code>.dcdx</code>).
+    </p>
+
+    <p>
+      I always meant to build it myself. I read <em>Crafting Interpreters</em>,
+      and bought <em>Engineering a Compiler</em> and the dragon book. I spent a
+      year wanting to learn compilers and performance properly, and yak shaved
+      my way into the math underneath it all with
+      <a href="https://github.com/mas-4/cheap-experiments">cheap experiments</a>
+      instead of just focusing on compilers. Then I got nerd sniped by epic
+      poetry and learning Latin, and the compiler books stayed on the shelf.
+    </p>
+
+    <p>
+      In 2026, after spending a lot of time using Claude Code for some new
+      personal experiments and projects, on a lark I asked Claude to try
+      building c′.
+    </p>
+    <img
+      class="time-card"
+      src="/five-minutes-later.jpg"
+      alt="Five minutes later..."
+      width="960"
+      height="540"
+    />
+
+    <p>
+      <a href="https://github.com/mas-4/cprime">cprime</a>, a c′
+      compiler forked from Rui Ueyama's
+      <a href="https://github.com/rui314/chibicc">chibicc</a> that now compiles
+      itself (the receiver ended up being called <code>ego</code>).
+      What a let down. Here's a Hello, World:
+    </p>
+
+<figure class="code-figure">
+      <pre class="listing"><code><sky-source path="../cprime/examples/hello.dcdx" /></code></pre>
+      <figcaption>
+        <a href="https://github.com/mas-4/cprime/blob/main/examples/hello.dcdx">cprime/examples/hello.dcdx</a>
+      </figcaption>
+    </figure>
+
+    <p>
+      From there I thought, let's get it self-hosting! No sooner asked than
+      done. Then let's rewrite bluesky in c′! Et voilà:
+      <a href="https://github.com/mas-4/skyblue">skyblue</a>, a rewrite of
+      bluesky in c′ 😞. (Jack Dorsey took bluesky out from under me! 🤬) No
+      matter, her name actually was Sky Blue Sendker. But once that was done,
+      all that was left was for it to rewrite standingwater.io in skyblue.
+    </p>
+
+    <p class="punchline">🫲 Atque ecce. 🫱</p>
+
+    <p>
+      This is all very bittersweet. A mountain of effort in 15 minutes to get
+      the thing I dreamed of for 3–5 years. But we're all figuring out what
+      we're good for these days. You can see some of my new projects on the
+      <a href="/projects">projects</a> page. AI assisted projects are clearly
+      marked.
+    </p>
+
+    <p>
+      So anyway, today this site is built by skyblue, which is compiled by
+      cprime, which bootstraps itself from C on every deploy to Netlify via
+      GitHub. Here's what's under this paragraph, from the top down. skyblue
+      pulled each excerpt out of the real source when it built this page, and
+      the <label for="xray" class="inline-toggle">source</label> button at the
+      top lifts the page off the files it was made from.
+    </p>
+
+    <ol class="strata">
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">the template</span>
+          <a href="https://github.com/mas-4/standingwater-flat/blob/main/src/_imports/main.html">src/_imports/main.html</a>
+        </p>
+        <pre class="listing"><code><sky-source path="_imports/main.html" from="<main" to="</main>" /></code></pre>
+        <p class="stratum-note">This paragraph is in the <code>content</code> slot of the site's main template.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">skyblue, in c′</span>
+          <a href="https://github.com/mas-4/skyblue/blob/main/src/render.dcdx">skyblue/src/render.dcdx</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../skyblue/src/render.dcdx" from="void Render.slot" to="}" /></code></pre>
+        <p class="stratum-note">skyblue fills the slot with this method. <code>ego</code> is the <code>Render</code> it's called on.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">cprime, in c′</span>
+          <a href="https://github.com/mas-4/cprime/blob/main/parse.dcdx">cprime/parse.dcdx</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../cprime/parse.dcdx" from="Member *Type.method" to="}" /></code></pre>
+        <p class="stratum-note"><code>ego.slots.get(…)</code> is a method call, and this is how cprime finds the method. The compiler is written in c′ too.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">cprime's stage 0, in C</span>
+          <a href="https://github.com/mas-4/cprime/blob/main/bootstrap/parse.c">cprime/bootstrap/parse.c</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../cprime/bootstrap/parse.c" from="static Member *get_method" to="}" /></code></pre>
+        <p class="stratum-note">The first cprime is compiled from a frozen copy written in plain C. Here's the same function, before c′.</p>
+      </li>
+      <li class="stratum">
+        <p class="stratum-head">
+          <span class="stratum-name">bedrock</span>
+          <a href="https://github.com/mas-4/standingwater-flat/blob/main/build.sh">build.sh</a>
+        </p>
+        <pre class="listing"><code><sky-source path="../build.sh" /></code></pre>
+        <p class="stratum-note">Netlify runs this on every push: <code>cc</code> builds stage 0, stage 0 builds cprime, cprime builds skyblue, and skyblue builds this page.</p>
+      </li>
+    </ol>
+  </section>
 </sky-block>

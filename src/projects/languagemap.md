@@ -1,9 +1,12 @@
 ---
 title: "Language Map"
 url: "https://language-map.com"
-featureImage: "./languagemap.jpg"
+featureImage: "/projects/languagemap.jpg"
 short: "languagemap"
 category: "frontend"
+ai: ""
+order: "09"
+year: "2020"
 tags: ["python", "react", "beautifulsoup4", "scraping", "data", "pandas"]
 ---
 This project was inspired by a trend on [r/languagelearning][11] where

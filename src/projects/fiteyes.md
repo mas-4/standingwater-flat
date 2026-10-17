@@ -1,9 +1,12 @@
 ---
 title: "ask.fiteyes.com"
 url: "https://ask.fiteyes.com"
-featureImage: "./fiteyes.png"
+featureImage: "/projects/fiteyes.png"
 short: "fiteyes"
 category: "backend"
+ai: ""
+order: "16"
+year: "2021"
 tags: ["django", "postgres", "celery"]
 ---
 

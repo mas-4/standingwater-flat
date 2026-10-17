@@ -1,8 +1,17 @@
-<nav>
-  <div id="title"><a href="/">${meta.title}</a></div>
-  <div class="links">
-    <a href="/">home</a>
-    <a href="/about">about</a>
-    <a href="/projects">projects</a>
-  </div>
-</nav>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M2 13c4 0 4-3 7-3s3 3 7 3 4-3 7-3 3 3 7 3" />
+        <path d="M2 20c4 0 4-3 7-3s3 3 7 3 4-3 7-3 3 3 7 3" />
+      </svg>
+      ${meta.title}
+    </a>
+    <div class="nav-links">
+      <a href="/">home</a>
+      <a href="/about">about</a>
+      <a href="/projects">projects</a>
+      <label for="xray" class="source-toggle" title="Lift the page to see what it's made of">source</label>
+    </div>
+  </nav>
+</header>

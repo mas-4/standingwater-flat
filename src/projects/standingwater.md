@@ -1,9 +1,12 @@
 ---
 title: "standingwater.io v2"
 url: "https://github.com/mas-4/standingwater"
-featureImage: "./standingwater.png"
+featureImage: "/projects/standingwater.png"
 short: "standingwater"
 category: "frontend"
+ai: ""
+order: "13"
+year: "2021"
 tags: ["react", "javascript", "gatsby", "ssg", "react-spring", "netlify", "graphql"]
 ---
 So I got sick of my old website!

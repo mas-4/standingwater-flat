@@ -1,12 +1,19 @@
 <sky-template path="_imports/main.html" />
+
+<sky-block name="title">Projects · </sky-block>
+
 <sky-block name="content">
-  <h1>Posts</h1>
-  <sky-markdown
-    slot="content"
-    directory="projects"
-    title="title"
-    sort="title"
-    order="ascending"
-    template="_imports/project.html"
-  />
+  <h1>Projects</h1>
+  <p class="lede">Things I've built over the years, for clients, for work, and for fun.</p>
+  <div class="cards">
+    <sky-markdown
+      slot="content"
+      directory="projects"
+      title="title"
+      sort="order"
+      order="ascending"
+      template="_imports/project.html"
+      item="_imports/card.html"
+    />
+  </div>
 </sky-block>

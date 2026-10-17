@@ -2,7 +2,11 @@
 title: "vote.py"
 url: "https://github.com/mas-4/vote"
 short: "vote"
+featureImage: ""
 category: "automation"
+ai: ""
+order: "22"
+year: "2020"
 tags: ["twilio", "aws", "python", "civics"]
 ---
 A friend of mine had never voted, nor registered to vote. So I made sure she did

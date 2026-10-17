@@ -1,9 +1,12 @@
 ---
 title: "Letters of John and Abigail Adams Twitterbot"
 url: "https://github.com/mas-4/johnandabigail"
-featureImage: "./john_and_abbie.png"
+featureImage: "/projects/john_and_abbie.png"
 short: "john"
 category: "automation"
+ai: ""
+order: "20"
+year: "2020"
 tags:
   [
     "python",
