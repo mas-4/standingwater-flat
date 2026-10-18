@@ -219,8 +219,6 @@ a[href=""],
   z-index: 0;
   overflow: hidden;
   padding: 1.5rem var(--pad);
-  columns: 2 22rem;
-  column-gap: 2.5rem;
   background: radial-gradient(circle calc(var(--r) * 1.7 * var(--flicker)) at var(--cx) var(--cy),
     var(--candle-hot), var(--candle) 75%);
   color: var(--candle-ink);
@@ -246,9 +244,9 @@ a[href=""],
   font-style: normal;
 }
 
+/* Just the writing, no line numbers: they read as a stray gutter */
 .underside .listing .line::before {
-  color: inherit;
-  opacity: 0.6;
+  content: none;
 }
 
 .paper {
