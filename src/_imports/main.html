@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script><sky-include path="theme.js" /></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><sky-slot name="title" />${meta.title}</title>
     <meta name="description" content="${meta.description}" />
@@ -15,6 +16,9 @@
     <input type="checkbox" id="xray" class="xray" aria-label="Show the source of this page" />
     <div class="desk">
       <div class="sheet">
+        <!-- Under the paper, the page's source, for the candle to show. -->
+        <div class="underside" aria-hidden="true"><sky-sources item="underside.html" /></div>
+        <div class="paper" aria-hidden="true"></div>
         <label for="xray" class="sheet-cover" title="Back to the page"></label>
         <sky-include path="_nav.html" />
         <main class="page">
@@ -33,5 +37,6 @@
         <sky-sources item="source.html" />
       </aside>
     </div>
+    <script><sky-include path="candle.js" /></script>
   </body>
 </html>
