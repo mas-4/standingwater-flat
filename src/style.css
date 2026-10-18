@@ -428,24 +428,42 @@ a[href=""],
   color: var(--accent);
 }
 
+/* The light switch: a sun that slides over and becomes a crescent */
 .theme-toggle {
+  position: relative;
+  flex-shrink: 0;
+  align-self: center;
+  width: 2.7rem;
+  height: 1.5rem;
   padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-family: var(--mono);
-  font-size: 1rem;
-  line-height: 1;
-  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--pill-bg);
   cursor: pointer;
-}
-
-.theme-toggle::before {
-  content: "\25D0"; /* ◐ */
+  transition: border-color 0.2s;
 }
 
 .theme-toggle:hover {
-  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle .knob {
+  position: absolute;
+  top: 50%;
+  left: 0.2rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: -0.525rem;
+  border-radius: 50%;
+  background: var(--sunset);
+  box-shadow: 0 0 0.45rem rgb(244 162 97 / 0.65);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle[aria-checked="true"] .knob {
+  transform: translateX(1.2rem);
+  background: transparent;
+  box-shadow: inset 0.34rem -0.14rem 0 0 #e9c46a;
 }
 
 .theme-toggle:focus-visible {
@@ -477,8 +495,9 @@ a[href=""],
   top: 0;
   right: 0;
   z-index: 5;
-  width: 2.25rem;
-  height: 2.25rem;
+  /* Within the margin, so it never covers the nav */
+  width: clamp(1.5rem, calc(var(--pad) - 0.5rem), 2.25rem);
+  height: clamp(1.5rem, calc(var(--pad) - 0.5rem), 2.25rem);
   border-bottom-left-radius: 0.7rem;
   background:
     linear-gradient(to bottom left, var(--ground) 50%, transparent 50%),
@@ -559,6 +578,7 @@ a[href=""],
 /* The nav keeps the width of a normal sheet, so it stays put when a
    wider page (projects) widens the paper around it. */
 .nav {
+  position: relative;
   max-width: 52rem;
   margin: 0 auto;
   padding: 1.1rem var(--pad);
@@ -597,6 +617,7 @@ a[href=""],
   display: flex;
   align-items: baseline;
   gap: 1.25rem;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -623,7 +644,7 @@ a[href=""],
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--sunset);
   font-weight: 600;
   margin: 0 0 0.5rem;
@@ -1186,6 +1207,32 @@ pre code {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-left: 0;
+  }
+
+  /* Up across from the name, where there's room */
+  .theme-toggle {
+    position: absolute;
+    top: 1.3rem;
+    right: calc(var(--pad) + 0.4rem);
+  }
+
+  .markdown table.anki-decks {
+    font-size: 0.8rem;
+  }
+
+  .markdown .anki-decks th,
+  .markdown .anki-decks td {
+    padding: 0.35em 0.4em;
+  }
+
+  .anki-decks .status {
+    white-space: normal;
   }
 
   .page {
