@@ -19,6 +19,25 @@
         <!-- Under the paper, the page's source, for the candle to show. -->
         <div class="underside" aria-hidden="true"><sky-sources item="underside.html" /></div>
         <div class="paper" aria-hidden="true"></div>
+        <svg class="flame" viewBox="0 0 24 44" aria-hidden="true">
+          <defs>
+            <radialGradient id="flame-body" cx="50%" cy="78%" r="62%">
+              <stop offset="0" stop-color="#fffbe8" />
+              <stop offset="0.35" stop-color="#ffe08a" />
+              <stop offset="0.7" stop-color="#ff9a2e" />
+              <stop offset="1" stop-color="#e2470f" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="flame-core" cx="50%" cy="80%" r="55%">
+              <stop offset="0" stop-color="#ffffff" />
+              <stop offset="0.6" stop-color="#fff3c4" />
+              <stop offset="1" stop-color="#ffd166" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <path class="flame-body" fill="url(#flame-body)" d="M12 1C15 11 22 18 21 29 20 37 16 43 12 43 8 43 4 37 3 29 2 18 9 11 12 1Z" />
+          <path class="flame-core" fill="url(#flame-core)" d="M12 15C14 21 17 26 16.5 32 16 37 14 40 12 40 10 40 8 37 7.5 32 7 26 10 21 12 15Z" />
+          <ellipse class="flame-base" cx="12" cy="40" rx="3.2" ry="2" fill="#5aa9ff" opacity="0.45" />
+        </svg>
+        <label for="xray" class="curl" title="Lift the page to see what it's made of" aria-hidden="true"></label>
         <label for="xray" class="sheet-cover" title="Back to the page"></label>
         <sky-include path="_nav.html" />
         <main class="page">

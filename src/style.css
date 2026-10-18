@@ -49,6 +49,11 @@
   --pad: clamp(1.25rem, 5vw, 4rem); /* inside the sheet */
   --peek: 3.5rem; /* how much of a lifted sheet stays on screen */
 
+  /* The back of the paper, on the turned-back corner */
+  --fold-light: light-dark(#f3eee2, #223230);
+  --fold-dark: light-dark(#d8cfbb, #17221f);
+  --fold-edge: light-dark(#fbf8f1, #2b3d3a);
+
   /* Candlelight through the paper (see candle.js) */
   --candle: light-dark(#f0d9ad, #2e2214);
   --candle-hot: light-dark(#ffefc9, #5c3f1f);
@@ -219,7 +224,7 @@ a[href=""],
   z-index: 0;
   overflow: hidden;
   padding: 1.5rem var(--pad);
-  background: radial-gradient(circle calc(var(--r) * 1.7 * var(--flicker)) at var(--cx) var(--cy),
+  background: radial-gradient(circle calc(var(--r) * 1.7 * var(--flicker)) at var(--cx) calc(var(--cy) - 22px),
     var(--candle-hot), var(--candle) 75%);
   color: var(--candle-ink);
   font-family: var(--mono);
@@ -256,12 +261,71 @@ a[href=""],
   z-index: 1;
   pointer-events: none;
   background-color: var(--paper);
-  /* A faint grain, no more */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.2 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
-  -webkit-mask-image: radial-gradient(circle calc(var(--r) * var(--flicker)) at var(--cx) var(--cy),
+  -webkit-mask-image: radial-gradient(circle calc(var(--r) * var(--flicker)) at var(--cx) calc(var(--cy) - 22px),
     rgb(0 0 0 / var(--hole)), rgb(0 0 0 / calc(var(--hole) / 2 + 0.5)) 55%, #000);
-  mask-image: radial-gradient(circle calc(var(--r) * var(--flicker)) at var(--cx) var(--cy),
+  mask-image: radial-gradient(circle calc(var(--r) * var(--flicker)) at var(--cx) calc(var(--cy) - 22px),
     rgb(0 0 0 / var(--hole)), rgb(0 0 0 / calc(var(--hole) / 2 + 0.5)) 55%, #000);
+}
+
+/* The flame, held just over the pointer, on the word. It's lit only
+   over letters (candle.js decides), and dances from its base. */
+
+.flame {
+  position: absolute;
+  left: var(--cx);
+  top: var(--cy);
+  z-index: 3;
+  width: 18px;
+  height: 33px;
+  margin: -40px 0 0 -9px;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: 50% 95%;
+  filter: drop-shadow(0 0 5px rgb(255 175 70 / 0.85)) drop-shadow(0 0 16px rgb(255 120 30 / 0.45));
+  transition: opacity 0.3s ease;
+}
+
+.sheet.lit .flame {
+  opacity: 1;
+  animation: flame-dance 1.7s ease-in-out infinite;
+}
+
+.flame-core {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: flame-core 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes flame-dance {
+  0%, 100% { transform: scale(1, 1) skewX(0deg); }
+  15% { transform: scale(0.95, 1.08) skewX(3deg); }
+  33% { transform: scale(1.04, 0.95) skewX(-1.5deg); }
+  52% { transform: scale(0.97, 1.06) skewX(1.5deg); }
+  70% { transform: scale(1.05, 0.96) skewX(-3deg); }
+  85% { transform: scale(0.98, 1.03) skewX(1deg); }
+}
+
+@keyframes flame-core {
+  from { transform: scale(1.04, 0.9); }
+  to { transform: scale(0.94, 1.08); }
+}
+
+/* While it's lit, each letter keeps a little paper behind it, so the
+   source glows through around the words but not through them. */
+.site-header,
+.page,
+.site-footer {
+  transition: text-shadow 0.4s ease;
+}
+
+.sheet.lit :is(.site-header, .page, .site-footer) {
+  text-shadow:
+    0 0 1px var(--paper), 0 0 3px var(--paper),
+    0 0 6px var(--paper), 0 0 11px var(--paper);
+}
+
+.sheet.lit :is(pre, .strata, .pill, .receipt) {
+  text-shadow: none;
 }
 
 /* At rest the source shows only around the edges of the sheet, faintly.
@@ -405,6 +469,30 @@ a[href=""],
   border-radius: 2px;
 }
 
+/* The top right corner is turned back: the ground shows where it was,
+   and the flap shows the back of the paper. It's also a handle for the
+   source button, so it lifts a little more under the pointer. */
+.curl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-bottom-left-radius: 0.7rem;
+  background:
+    linear-gradient(to bottom left, var(--ground) 50%, transparent 50%),
+    linear-gradient(45deg, var(--fold-dark), var(--fold-light) 46%, var(--fold-edge) 50%, transparent 50%);
+  filter: drop-shadow(-2px 3px 3px rgb(0 0 0 / 0.22));
+  cursor: pointer;
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+.curl:hover {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
 .sheet-cover {
   display: none;
   position: absolute;
@@ -440,6 +528,10 @@ a[href=""],
 
 .xray:checked ~ .desk .sheet {
   --candle-on: 0;
+}
+
+.xray:checked ~ .desk .flame {
+  display: none;
 }
 
 .xray:checked ~ .desk .ground {
@@ -1113,6 +1205,11 @@ pre code {
   .listing {
     font-size: 0.78rem;
   }
+
+  .curl {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1123,7 +1220,9 @@ pre code {
     transition: none;
   }
 
-  .sheet.lit {
+  .sheet.lit,
+  .sheet.lit .flame,
+  .flame-core {
     animation: none;
   }
 
