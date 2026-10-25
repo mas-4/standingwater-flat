@@ -2,7 +2,7 @@
 title: "Reading"
 short: "reading"
 order: "01"
-currently: "Kulikowski's <em>Imperial Triumph</em>, Abulafia's <em>The Great Sea</em>, and, in Latin, <em>Ad Alpes</em> and Ørberg's <em>Roma Aeterna</em>. Next: Kulikowski's <em>Imperial Tragedy</em>."
+currently: "Kulikowski's <em>Imperial Triumph</em>, Ada Palmer's <em>Inventing the Renaissance</em>, and, in Latin, <em>Ad Alpes</em> and Ørberg's <em>Roma Aeterna</em>. Next: Kulikowski's <em>Imperial Tragedy</em>."
 ---
 Mostly history (Rome, late antiquity and the steppe, lately) and poetry,
 with the epic tradition at the center: the shelves run from *Gilgamesh* to
@@ -20,6 +20,7 @@ the epic of Gesar. The compilers are next to Heidegger.
 - Anthony Barrett, *Rome Is Burning*
 - Christopher Beckwith, *Empires of the Silk Road* 
 - Barry Cunliffe, *By Steppe, Desert, and Ocean* 🐪
+- David Abulafia, *The Great Sea*
 - Richard Wrangham, *The Goodness Paradox*
 - David Graeber and David Wengrow, *The Dawn of Everything* 🤮
 - David Reich, *Who We Are and How We Got Here*
