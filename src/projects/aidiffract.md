@@ -1,15 +1,15 @@
 ---
-title: "NanoDiffract test platform"
+title: "AiDiffract test platform"
 url: ""
 featureImage: ""
-short: "nanodiffract"
+short: "aidiffract"
 category: "platform"
 ai: ""
 order: "01"
 year: "2021 – now"
 tags: ["python", "pytest", "c", "c++", "postgresql", "azure devops", "rhel", "qt"]
 ---
-My day job, since 2021: build and test engineering for NanoDiffract, Onto
+My day job, since 2021: build and test engineering for AiDiffract (formerly NanoDiffract), Onto
 Innovation's decades-old, 2M+ line C++ optical metrology software, in a
 Windows shop. The work is finding the pain points in how the software gets
 built and tested, and engineering them away.
@@ -17,7 +17,7 @@ built and tested, and engineering them away.
 - **The regression-testing system**, designed and built over five years. It's
   a pytest-based tool that generates reference results for each build, stores
   them in PostgreSQL, and runs PR validation and post-merge regressions on the
-  compute cluster. Every NanoDiffract engineer relies on it.
+  compute cluster. Every AiDiffract engineer relies on it.
 - **A desktop GUI for it** (PySide6, Cythonized), now in use at five leading
   chipmakers and rolling out to every Onto customer.
 - **Tooling on top of it**: automated bisection across official builds that

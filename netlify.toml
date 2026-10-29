@@ -6,3 +6,9 @@
 # settings pinned 16, which is end-of-life.
 [build.environment]
   NODE_VERSION = "24"
+
+# The product was renamed: NanoDiffract is now AiDiffract.
+[[redirects]]
+  from = "/projects/nanodiffract"
+  to = "/projects/aidiffract"
+  status = 301
